@@ -96,7 +96,7 @@ loop do
     print "\tPick a card to play by typing in the name of the card => "
     input, turn = gets.chomp, true
     for card in user.hand
-    	if card.num == convert(input) && turn
+    	if card.num == converter(input) && turn
     		user.play(card) 
     		turn = false
     	end
