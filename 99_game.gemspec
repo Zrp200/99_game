@@ -2,7 +2,7 @@ Gem::Specification.new do |config|
 	config.name = "99_game"
 	config.author = 'Zachary Perlmutter'
 	config.email = 'zrp200@gmail.com'
-	config.version = '1.0.3.pre'
+	config.version = '1.0.3'
 	config.date = '2014-06-23'
 	config.summary = 'The game of 99.'
 	config.description = <<YIELD
