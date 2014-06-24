@@ -32,9 +32,6 @@ class Hand # Creates a object that holds and can play cards
     attr_reader :hand
     def initialize; @hand = [$deck.shift, $deck.shift, $deck.shift]; end
     def play(card)
-		legal = false
-		for cards in @hand; legal = true if cards.num == card.num; end
-		raise CardError, "\aCard not allowed\a" unless legal
 		if card.num == "King"; $value = 99
 		elsif card.num == "Joker"; $value = 0
 		else; $value += card.value
