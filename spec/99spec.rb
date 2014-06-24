@@ -1,5 +1,5 @@
 require_relative "spec_helper"
-require "99"
+require "99_game"
 describe "$deck" do
 	describe "#length" do
 		it "should == 54" do; expect($deck.length + 6).to eq 54; end
