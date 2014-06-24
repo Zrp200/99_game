@@ -31,12 +31,6 @@ class Card # Represents a card in the deck
 	end
     def initialize(card); @num = card; end
 end
-class UserCard < Card # This class converts user input into a Card-like object
-	attr_reader :num
-	@@num = {King: "King", K: "King", Ace: "Ace", A: "Ace", Queen: "Queen", Q: "Queen", Jack: "Jack", J: "Jack", Joker: "Joker", "$".to_sym => "Joker"}
-	def _num; @@num; end
-	def initialize(number=""); @@num.default, @num = number.to_i, @@num[number.capitalize.to_sym]; end
-end
 class Hand # Creates a object that holds and can play cards
     attr_reader :hand
     def initialize; @hand = [$deck.shift, $deck.shift, $deck.shift]; end
