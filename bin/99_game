@@ -43,6 +43,11 @@ def pause(p)
     sleep(p)
     puts
 end
+def converter(input)
+	if input == input.capitalize; return input.to_i
+	else; return input.capitalize
+	end
+end
 $value, value1, value2, value3, dealer, user = 0,0,0,0, Hand.new, Hand.new
 loop do
 	$deck.shuffle!
@@ -89,7 +94,13 @@ loop do
     user.view
     pause(0.5)
     print "\tPick a card to play by typing in the name of the card => "
-	user.play(UserCard.new(gets.chomp))
+    input, turn = gets.chomp, true
+    for card in user.hand
+    	if card.num == convert(input) && turn
+    		user.play(card) 
+    		turn = false
+    	end
+    end	
 	pause(1.5)
 	puts "\tYou drew a(n) #{user.hand[2].num}"
 	pause(0.5)
