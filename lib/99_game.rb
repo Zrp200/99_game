@@ -3,6 +3,7 @@ def pause(p)
     puts
 end
 def converter(input)
+	abbrev = {"$".to_sym => "Joker", K: "King", J: "Jack", Q: "Queen", A: "Ace"}
 	if input == input.capitalize; return input.to_i
 	else; return input.capitalize
 	end
