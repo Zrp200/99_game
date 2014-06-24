@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-require '99'
+require '99_game'
 BEGIN { # Rules of the game
     puts "\n\t\t\t\tThe Game Of 99\n\t\t\t\t--------------\n\n"
     sleep(1)
