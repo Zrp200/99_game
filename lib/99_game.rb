@@ -1,3 +1,12 @@
+def pause(p)
+    sleep(p)
+    puts
+end
+def converter(input)
+	if input == input.capitalize; return input.to_i
+	else; return input.capitalize
+	end
+end
 class CardError < Exception; end
 class Card # Represents a card in the deck
 	attr_reader :num
