@@ -1,0 +1,104 @@
+#!/usr/bin/env ruby
+require '99'
+BEGIN { # Rules of the game
+    puts "\n\t\t\t\tThe Game Of 99\n\t\t\t\t--------------\n\n"
+    sleep(1)
+    print "\tWould you like to see the rules? (y/n) => "
+	begin
+		if gets.chomp.include?("y")
+			puts
+			puts "\tGoal: Your goal is to get your opponent to bring the value over 99 by\nplaying 1 of your 3 cards."
+			sleep(3); puts
+			puts "\tCards: A card will usually increase the value by itself, but there are a few exceptions."
+			sleep(3); puts
+			puts "\t\tValues"
+			puts "\t\t------"
+			sleep(1)
+			puts "\n\t\u00B7 Aces are worth 1"
+			sleep(3)
+			puts "\t\u00B7 1 - 10 are worth themselves, with the exception of 4 and 9"
+			sleep(3)
+			puts "\t\u00B7 4, 9, and Jacks are worth 0"
+			sleep(3)
+			puts "\t\u00B7 Queens decrease the value by 10"
+			sleep(3)
+			puts "\t\u00B7 Kings set the value to 99"
+			sleep(3)
+			puts "\t\u00B7 Jokers set the value to 0"
+			sleep(3); puts
+			print "Press Enter to begin"; gets.chomp
+		else; sleep(2)
+		end
+		rescue Exception; puts "Continuing"
+	end
+    puts
+    puts
+}
+END { # Thanks for playing
+    sleep(2)
+    puts "\n\tThanks for playing 99!"
+    sleep(3)
+}
+def pause(p)
+    sleep(p)
+    puts
+end
+$value, value1, value2, value3, dealer, user = 0,0,0,0, Hand.new, Hand.new
+loop do
+	$deck.shuffle!
+    puts
+    puts "\tIt is the dealer's turn!"
+    def test(card, value) # argument 'card' needs to be an instance of Card 
+        if card.num == "King"; value = 99
+        elsif card.num == "Joker"; value = -1
+        else; value = $value + card.value
+	    end
+	    value = -100 if value > 99
+    end
+    i = 1
+    for card in dealer.hand
+        case i
+	        when 1 then test(card, value1)
+	        when 2 then test(card, value2)
+	        when 3 then test(card, value3)
+        end
+        i += 1
+    end
+    if value1 >= value2 and value1 >= value3
+	    $card = dealer.hand[0].num
+        dealer.play(dealer.hand[0])
+    elsif value2 >= value3
+	    $card = dealer.hand[1].num
+        dealer.play(dealer.hand[1])
+    else
+	    $card = dealer.hand[2].num
+        dealer.play(dealer.hand[2])
+    end
+    pause(2)
+    puts "\tThe dealer played a(n) #{$card}"
+    pause(0.5)
+    puts "\tThe value is now #{$value}"
+    puts
+    pause(2)
+    if $value > 99 # Runs when you win and exits loop
+	    puts "\tYou win!"
+	    break
+    end
+    puts "\tIt's your turn!"
+    pause(1.5)
+    user.view
+    pause(0.5)
+    print "\tPick a card to play by typing in the name of the card => "
+	user.play(UserCard.new(gets.chomp))
+	pause(1.5)
+	puts "\tYou drew a(n) #{user.hand[2].num}"
+	pause(0.5)
+    puts "\tThe value is now #{$value}"
+    pause(2)
+    if $value > 99 # Runs when dealer wins and exits loop
+	    puts "\tYou lose"
+	    break
+    end
+end
+__END__
+Programmed by: Zachary Perlmutter
