@@ -82,20 +82,20 @@ def pause(p)
 end
 $deck = Array.new
 4.times do # Add the cards to the deck
-	$deck << Card.new "Ace"
-	$deck << Card.new "King"
-	$deck << Card.new "Queen"
-	$deck << Card.new "Jack"
-	$deck << Card.new 10
-	$deck << Card.new 9
-	$deck << Card.new 8
-	$deck << Card.new 7
-	$deck << Card.new 6
-	$deck << Card.new 5  
-	$deck << Card.new 4  
-	$deck << Card.new 3
-	$deck << Card.new 2
+	$deck.push Card.new("Ace")
+	$deck.push Card.new("King")
+	$deck.push Card.new("Queen")
+	$deck.push Card.new("Jack")
+	$deck.push Card.new(10)
+	$deck.push Card.new(9)
+	$deck.push Card.new(8)
+	$deck.push Card.new(7)
+	$deck.push Card.new(6)
+	$deck.push Card.new(5) 
+	$deck.push Card.new(4) 
+	$deck.push Card.new(3)
+	$deck.push Card.new(2)
 end
-2.times {$deck << Card.new "Joker"}
+2.times {$deck.push Card.new("Joker")}
 $deck.shuffle!
 __END__
