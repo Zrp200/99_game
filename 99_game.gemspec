@@ -2,11 +2,11 @@ Gem::Specification.new do |config|
 	config.name = "99_game"
 	config.author = 'Zachary Perlmutter'
 	config.email = 'zrp200@gmail.com'
-	config.version = '1.0.3'
-	config.date = '2014-06-23'
+	config.version = '1.1.0'
+	config.date = '2014-06-24'
 	config.summary = 'The game of 99.'
 	config.description = <<YIELD
-This is a text-based interpretation of the card game 99.
+This is a text-based interpretation of the card game 99. Comes with the gem in the form of an executable.
 YIELD
 	config.bindir = 'bin'
 	config.extra_rdoc_files = ['README.md']
