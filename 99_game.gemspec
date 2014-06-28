@@ -9,7 +9,7 @@ Gem::Specification.new do |config|
 This is a text-based interpretation of the card game 99. Comes with the gem in the form of an executable.
 YIELD
 	config.bindir = 'bin'
-	config.extra_rdoc_files = ['README.md']
+	config.extra_rdoc_files = ['README.md', 'LICENSE']
 	config.files = ['lib/99_game.rb']
 	config.required_ruby_version = '>= 2.0.0'
 	config.license = 'MIT'
