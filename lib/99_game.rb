@@ -14,7 +14,7 @@ def converter(input)
 	elsif not_nil? abbrev[input.capitalize.to_sym]
 		return abbrev[input.capitalize.to_sym]
 	elsif input.nil || input == String.new
-		raise CardError, "Input not allowed"
+		raise Exception, "Input not allowed"
 	else
 		return input.capitalize
 	end
