@@ -2,8 +2,7 @@ Gem::Specification.new do |config|
 	config.name = "99_game"
 	config.author = 'Zachary Perlmutter'
 	config.email = 'zrp200@gmail.com'
-	config.version = '1.2.0'
-	config.date = '2014-06-24'
+	config.version = '1.2.1'
 	config.summary = 'The game of 99.'
 	config.description = <<YIELD
 This is a text-based interpretation of the card game 99. Comes with the gem in the form of an executable.
@@ -16,4 +15,5 @@ YIELD
 	config.homepage = 'https://rubygems.org/gems/99_game'
 	config.test_files = ['spec/99spec.rb', '.rspec', 'spec/spec_helper.rb']
 	config.executables << '99_game'
+	config.metadata = {arguments: {help: ["-h", "--help"]}}
 end 
