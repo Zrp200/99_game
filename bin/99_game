@@ -24,7 +24,7 @@ BEGIN { # Rules of the game
 		sleep(3)
 		puts "\t\u00B7 Jokers set the value to 0"
 		sleep(3); puts
-		break
+		quit
   	end
     puts
     puts
