@@ -10,10 +10,10 @@ YIELD
 	config.bindir = 'bin'
 	config.extra_rdoc_files = ['README.md', 'LICENSE']
 	config.files = ['lib/99_game.rb']
-	config.required_ruby_version = '>= 2.0.0'
+	config.required_ruby_version = '>= 1.8.0'
 	config.license = 'MIT'
 	config.homepage = 'https://rubygems.org/gems/99_game'
 	config.test_files = ['spec/99spec.rb', '.rspec', 'spec/spec_helper.rb']
 	config.executables << '99_game'
-	config.metadata = {"Help" => "-h, --help"}
+	config.metadata = {"Recommended Ruby Version" => "~> 2.0.0"}
 end 
