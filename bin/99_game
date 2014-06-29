@@ -17,8 +17,6 @@ BEGIN { # Looks at its arguements
 			puts "\t\t\u00B7 Jokers set the value to 0"
 			exit
   	end
-    puts
-    puts
 }
 END { # Thanks for playing
     sleep(2)
