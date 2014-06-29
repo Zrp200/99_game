@@ -2,10 +2,10 @@ Gem::Specification.new do |config|
 	config.name = "99_game"
 	config.author = 'Zachary Perlmutter'
 	config.email = 'zrp200@gmail.com'
-	config.version = '1.2.1'
+	config.version = '1.2.2'
 	config.summary = 'The game of 99.'
 	config.description = <<YIELD
-This is a text-based interpretation of the card game 99. Comes with the gem in the form of an executable.
+This is a text-based interpretation of the card game 99. Comes with the gem in the form of an executable. Make sure to read the rules in `99_game -h` before playing
 YIELD
 	config.bindir = 'bin'
 	config.extra_rdoc_files = ['README.md', 'LICENSE']
