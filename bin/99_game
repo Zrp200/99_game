@@ -1,15 +1,13 @@
 #!/usr/bin/env ruby
 require '99_game'
 BEGIN { # Rules of the game
-    puts "\n\t\t\t\tThe Game Of 99\n\t\t\t\t--------------\n\n"
-    sleep(1)
     if ARGV[0] == "-h" || ARGV[0] == "--help"
     	puts "\t\tCommands"
-    	puts "--------"
+    	puts "\t\t--------"
     	puts "-h/--help - shows this message"
 		puts "\t\tGameplay"
 		puts "--------"
-		puts "Goal: Your goal is to get your opponent to bring the value over 99 by\nplaying 1 of your 3 cards."
+		puts "\t\tGoal: Your goal is to get your opponent to bring the value over 99 by\nplaying 1 of your 3 cards."
 		puts "\tCards: A card will usually increase the value by itself, but there are a few exceptions."
 		puts "\n\t\u00B7 Aces are worth 1"
 		puts "\t\u00B7 1 - 10 are worth themselves, with the exception of 4 and 9"
