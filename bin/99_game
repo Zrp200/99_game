@@ -6,7 +6,7 @@ BEGIN { # Rules of the game
     if ARGV[0] == "-h" || ARGV[0] == "--help"
     	puts "\t\tCommands"
     	puts "--------"
-    	puts "-h/--help - shows this message
+    	puts "-h/--help - shows this message"
 		puts "\t\tGameplay"
 		puts "--------"
 		puts "Goal: Your goal is to get your opponent to bring the value over 99 by\nplaying 1 of your 3 cards."
