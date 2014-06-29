@@ -17,14 +17,15 @@ describe "Card" do
 		end
 	end
 end
-describe "UserCard" do
-	describe "#num" do
-		for key in UserCard.new._num.keys
-			describe "#{key}" do
-				it "should == #{UserCard.new._num[key]}" do; 
-					expect(UserCard.new(key.to_s).num).to eq UserCard.new._num[key]
-				end
-			end
+describe "converter" do
+	context "when a number" do
+		it "should return the input as a number" do
+			expect(converter("5")).to eq 1
+		end
+	end
+	context "when an abbreveation" do
+		it "should expand it" do
+			expect(converter("k")).to eq "King"
 		end
 	end
 end
