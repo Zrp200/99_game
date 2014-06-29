@@ -1,21 +1,21 @@
 #!/usr/bin/env ruby
 require '99_game'
-BEGIN { # Looks at its arguements 
-    if ARGV[0] == "-h" || ARGV[0] == "--help"
-    	puts "\t\tCommands"
-    	puts "\t\t--------"
-    	puts "\t-h/--help - shows this message"
-		puts "\t\tGameplay"
-		puts "\t\t--------"
-		puts "\tGoal: Your goal is to get your opponent to bring the value over 99 by playing 1 of your 3 cards."
-		puts "\tCards: A card will usually increase the value by itself, but there are a few exceptions."
-		puts "\n\t\u00B7 Aces are worth 1"
-		puts "\t\u00B7 1 - 10 are worth themselves, with the exception of 4 and 9"
-		puts "\t\u00B7 4, 9, and Jacks are worth 0"
-		puts "\t\u00B7 Queens decrease the value by 10"
-		puts "\t\u00B7 Kings set the value to 99"
-		puts "\t\u00B7 Jokers set the value to 0"
-		exit
+BEGIN { # Looks at its arguements
+	ARGV[0] = "-h" if ARGV[0] == "--help"
+    case ARGV[0]
+    	when "-h"
+    		puts "\u00B7 Commands"
+    		puts "\t\u00B7 -h/--help - shows this message\n"
+			puts "\u00B7 Gameplay"
+			puts "\t\u00B7 Your goal is to get your opponent to bring the value over 99 by playing 1 of your 3 cards."
+			puts "\t\u00B7 A card will usually increase the value by itself, but there are a few exceptions:"
+			puts "\t\t\u00B7 Aces are worth 1"
+			puts "\t\t\u00B7 1 - 10 are worth themselves, with the exception of 4 and 9"
+			puts "\t\t\u00B7 4, 9, and Jacks are worth 0"
+			puts "\t\t\u00B7 Queens decrease the value by 10"
+			puts "\t\t\u00B7 Kings set the value to 99"
+			puts "\t\t\u00B7 Jokers set the value to 0"
+			exit
   	end
     puts
     puts
