@@ -3,34 +3,29 @@ require '99_game'
 BEGIN { # Rules of the game
     puts "\n\t\t\t\tThe Game Of 99\n\t\t\t\t--------------\n\n"
     sleep(1)
-    print "\tWould you like to see the rules? (y/n) => "
-	begin
-		if gets.chomp.include?("y")
-			puts
-			puts "\tGoal: Your goal is to get your opponent to bring the value over 99 by\nplaying 1 of your 3 cards."
-			sleep(3); puts
-			puts "\tCards: A card will usually increase the value by itself, but there are a few exceptions."
-			sleep(3); puts
-			puts "\t\tValues"
-			puts "\t\t------"
-			sleep(1)
-			puts "\n\t\u00B7 Aces are worth 1"
-			sleep(3)
-			puts "\t\u00B7 1 - 10 are worth themselves, with the exception of 4 and 9"
-			sleep(3)
-			puts "\t\u00B7 4, 9, and Jacks are worth 0"
-			sleep(3)
-			puts "\t\u00B7 Queens decrease the value by 10"
-			sleep(3)
-			puts "\t\u00B7 Kings set the value to 99"
-			sleep(3)
-			puts "\t\u00B7 Jokers set the value to 0"
-			sleep(3); puts
-			print "Press Enter to begin"; gets.chomp
-		else; sleep(2)
-		end
-		rescue Exception; puts "Continuing"
-	end
+    if ARGV[0] = "-h" || ARGV[0] == "--help"
+		puts
+		puts "\tGoal: Your goal is to get your opponent to bring the value over 99 by\nplaying 1 of your 3 cards."
+		sleep(3); puts
+		puts "\tCards: A card will usually increase the value by itself, but there are a few exceptions."
+		sleep(3); puts
+		puts "\t\tValues"
+		puts "\t\t------"
+		sleep(1)
+		puts "\n\t\u00B7 Aces are worth 1"
+		sleep(3)
+		puts "\t\u00B7 1 - 10 are worth themselves, with the exception of 4 and 9"
+		sleep(3)
+		puts "\t\u00B7 4, 9, and Jacks are worth 0"
+		sleep(3)
+		puts "\t\u00B7 Queens decrease the value by 10"
+		sleep(3)
+		puts "\t\u00B7 Kings set the value to 99"
+		sleep(3)
+		puts "\t\u00B7 Jokers set the value to 0"
+		sleep(3); puts
+		break
+  	end
     puts
     puts
 }
