@@ -6,7 +6,7 @@ BEGIN { # Rules of the game
     	puts "\t\t--------"
     	puts "-h/--help - shows this message"
 		puts "\t\tGameplay"
-		puts "--------"
+		puts "\t\t--------"
 		puts "\t\tGoal: Your goal is to get your opponent to bring the value over 99 by\nplaying 1 of your 3 cards."
 		puts "\tCards: A card will usually increase the value by itself, but there are a few exceptions."
 		puts "\n\t\u00B7 Aces are worth 1"
