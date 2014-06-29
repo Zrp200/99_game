@@ -1,4 +1,5 @@
 require_relative "spec_helper"
+ENV['CODECLIMATE_REPO_TOKEN']  = '47984031fb3728b3f3dd3e3b9bd29fd6cae08b2f0a14bd324d31e93d5cd554c6'
 require "99_game"
 describe "$deck" do
 	describe "#length" do
