@@ -1,6 +1,6 @@
 # Tests if obj is not nil.
 def not_nil?(obj)
-	if obj.nil
+	if obj.nil?
 		return false
 	else
 		return true
@@ -13,8 +13,8 @@ def converter(input)
 		return input.to_i
 	elsif not_nil? abbrev[input.capitalize.to_sym]
 		return abbrev[input.capitalize.to_sym]
-	elsif input.nil || input == String.new
-		raise Exception, "Input not allowed"
+	elsif input.nil? || input == String.new
+		raise CardError, "Input not allowed"
 	else
 		return input.capitalize
 	end
