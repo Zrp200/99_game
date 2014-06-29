@@ -15,5 +15,5 @@ YIELD
 	config.homepage = 'https://rubygems.org/gems/99_game'
 	config.test_files = ['spec/99spec.rb', '.rspec', 'spec/spec_helper.rb']
 	config.executables << '99_game'
-	config.metadata = {"Arguments" => {help: ["-h", "--help"]}}
+	config.metadata = {"Help" => "-h, --help"}
 end 
