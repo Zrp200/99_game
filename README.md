@@ -6,4 +6,6 @@
 99_game
 =======
 
-The game of 99
+To install: `gem install 99_game`
+
+For the rules and arguments: `gem '99_game'`
