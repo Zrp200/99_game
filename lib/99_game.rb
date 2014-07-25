@@ -6,7 +6,7 @@
 			return true
 		end
 	end
-# Converts _input_ to an integer if String#capitalize does something. If _input_ is an abbreviation, _input_ is converted to what it stands for. Otherwise, it simply returns a capitalized version of _input_. If _input_ is nil or an emtpy string, raises a CardError
+# Converts 'input' to an integer if String#capitalize does something. If _input_ is an abbreviation, _input_ is converted to what it stands for. Otherwise, it simply returns a capitalized version of _input_. If _input_ is nil or an emtpy string, raises a CardError
 	def converter(input)
 		abbrev = {"$" => "Joker", "K" => "King", "J" => "Jack", "Q" => "Queen", "A" => "Ace"}
 		if input == input.capitalize!
@@ -22,13 +22,10 @@
 # Expected errors
 	class CardError < Exception; end
 class Card # Represents a card in the deck
-	attr_reader :num
-	@@value = {"Ace" => 1, 4 => 0, 9 => 0, "Jack" => 0, "Joker" => 0, "King" => 99, "Queen" => -10}
-# Gives the Card's value
-	def value
-		@@value.default = @num.to_i
-		return @@value[@num]
-	end
+	# Gives the number on the card
+		attr_reader :num
+	# Gives the Card's value
+		attr_reader :value
 # Backup method for Card#value
 	def _value
 		return case @num
@@ -45,7 +42,9 @@ class Card # Represents a card in the deck
 		end
 	end
 # Creates a new card
-    def initialize(card); @num = card; end
+    def initialize(card)
+    	values, values.default, @value, @num = {"Ace" => 1, 4 => 0, 9 => 0, "Jack" => 0, "Joker" => 0, "King" => 99, "Queen" => -10}, card.to_i, values[card], card
+    end
 end
 class Hand # Creates an object that holds and can play cards. Interacts with Deck objects.
 	# The actual hand
