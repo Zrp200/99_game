@@ -6,7 +6,7 @@ BEGIN { # Looks at its arguements
 	ARGV[0] = "-v" if ARGV[0] == "--version"
     case ARGV[0]
     	when "-v"
-    		puts "1.3.0"
+    		puts "2.0.0"
     		exit
     	when "-h"
     		puts "\u00B7 Commands"
@@ -42,20 +42,20 @@ loop do
     i = 1
     for card in dealer.hand
         case i
-	        when 1 then test(card, value1)
-	        when 2 then test(card, value2)
-	        when 3 then test(card, value3)
+	        when 1 then test card, $value, value1
+	        when 2 then test card, $value, value2
+	        when 3 then test card, $value, value3
         end
         i += 1
     end
     if value1 >= value2 and value1 >= value3
-	    $card = dealer.hand[0].num
+	$card = dealer.hand[0].num
         dealer.play(dealer.hand[0])
     elsif value2 >= value3
-	    $card = dealer.hand[1].num
+    	$card = dealer.hand[1].num
         dealer.play(dealer.hand[1])
     else
-	    $card = dealer.hand[2].num
+   	$card = dealer.hand[2].num
         dealer.play(dealer.hand[2])
     end
     pause(2)
