@@ -3,7 +3,7 @@
 
 To install: `gem install 99_game`
 
-For the rules and arguments: `gem '99_game'`
+For the rules and arguments: `99_game -h`
 
 ## Badges
 [![Gem Version](https://badge.fury.io/rb/99_game.png)](http://badge.fury.io/rb/99_game)
