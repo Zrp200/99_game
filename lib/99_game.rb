@@ -1,3 +1,13 @@
+# Used by the CPU to determine which card to play. Argument 'card' needs to be an instance of Card 
+	def test(card, actual_value, test_value)
+        	if card.num == "King"
+        		value = 99
+        	elsif card.num == "Joker"
+        		value = -1
+        	else; value = $value + card.value
+	    	end
+	    	value = -100 if value > 99
+    	end
 # Tests if obj is not nil.
 	def not_nil?(obj)
 		if obj.nil?
