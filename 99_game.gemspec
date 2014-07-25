@@ -13,7 +13,7 @@ YIELD
 	config.required_ruby_version = '>= 1.8.0'
 	config.license = 'MIT'
 	config.homepage = 'https://rubygems.org/gems/99_game'
-	config.test_files = ['spec/99spec.rb', '.rspec', 'spec/spec_helper.rb']
+	config.test_files = ['spec/lib/99spec.rb', '.rspec', 'spec/spec_helper.rb']
 	config.executables << '99_game'
 	config.metadata = {"Recommended Ruby Version" => "~> 2.0.0"}
 end 
