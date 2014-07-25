@@ -8,15 +8,15 @@ def not_nil?(obj)
 end
 # Converts _input_ to an integer if String#capitalize does something. If _input_ is an abbreviation, _input_ is converted to what it stands for. Otherwise, it simply returns a capitalized version of _input_. If _input_ is nil or an emtpy string, raises a CardError
 def converter(input)
-	abbrev = {"$".to_sym => "Joker", K: "King", J: "Jack", Q: "Queen", A: "Ace"}
-	if input == input.capitalize
+	abbrev = {"$" => "Joker", "K" => "King", "J" => "Jack", "Q" => "Queen", "A" => "Ace"}
+	if input == input.capitalize!
 		return input.to_i
-	elsif not_nil? abbrev[input.capitalize.to_sym]
-		return abbrev[input.capitalize.to_sym]
+	elsif not_nil? abbrev[input]
+		return abbrev[input]
 	elsif input.nil? || input == String.new
 		raise CardError, "Input not allowed"
 	else
-		return input.capitalize
+		return input
 	end
 end
 class CardError < Exception; end
@@ -49,7 +49,7 @@ end
 class Hand # Creates an object that holds and can play cards
     attr_reader :hand
 # Creates a new Hand
-    def initialize; @hand = [$deck.shift, $deck.shift, $deck.shift]; end
+    def initialize(deck); @hand, @deck = [deck.draw, deck.draw, deck.draw], deck; end
 # Gameplay method
     def play(card)
 		if card.num == "King"; $value = 99
@@ -61,9 +61,8 @@ class Hand # Creates an object that holds and can play cards
 			if index.num == card.num and not done
 				discard = @hand[i]
 				@hand.delete_at(i)
-				draw = $deck.shift
-				@hand.push(draw)
-				$deck.push(discard)
+				@hand.push @deck.draw
+				@deck.discard discard
 				done = true
 			end
 			i += 1
@@ -80,22 +79,30 @@ def pause(p)
     sleep p
     puts
 end
-$deck = Array.new
-4.times do # Add the cards to the deck
-	$deck.push Card.new("Ace")
-	$deck.push Card.new("King")
-	$deck.push Card.new("Queen")
-	$deck.push Card.new("Jack")
-	$deck.push Card.new(10)
-	$deck.push Card.new(9)
-	$deck.push Card.new(8)
-	$deck.push Card.new(7)
-	$deck.push Card.new(6)
-	$deck.push Card.new(5) 
-	$deck.push Card.new(4) 
-	$deck.push Card.new(3)
-	$deck.push Card.new(2)
+class Deck # Cards are stored in these objects
+	def initialize # Creates a new deck that can now be used for playing the game
+		@cards = Array.new
+		4.times do # Add the cards to the deck
+			@cards.push Card.new("Ace")
+			@cards.push Card.new("King")
+			@cards.push Card.new("Queen")
+			@cards.push Card.new("Jack")
+			@cards.push Card.new(10)
+			@cards.push Card.new(9)
+			@cards.push Card.new(8)
+			@cards.push Card.new(7)
+			@cards.push Card.new(6)
+			@cards.push Card.new(5) 
+			@cards.push Card.new(4) 
+			@cards.push Card.new(3)
+			@cards.push Card.new(2)
+		end
+		2.times {@cards.push Card.new("Joker")}
+		@cards.shuffle!
+	end
+	# Draw from the deck
+		def draw; @cards.shift; end
+	# Discard to the deck
+		def discard(card); @cards.push card; end
 end
-2.times {$deck.push Card.new("Joker")}
-$deck.shuffle!
-__END__
+
