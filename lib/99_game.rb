@@ -1,4 +1,4 @@
-# Used by the CPU to determine which card to play. Argument 'card' needs to be an instance of Card 
+# Used by the CPU to determine which card to play. Argument card needs to be an instance of Card 
 	def test(card, actual_value, test_value)
         	if card.num == "King"
         		value = 99
@@ -16,7 +16,7 @@
 			return true
 		end
 	end
-# Converts 'input' to an integer if String#capitalize does something. If _input_ is an abbreviation, _input_ is converted to what it stands for. Otherwise, it simply returns a capitalized version of _input_. If _input_ is nil or an emtpy string, raises a CardError
+# Converts input to an integer if String#capitalize does something. If _input_ is an abbreviation, _input_ is converted to what it stands for. Otherwise, it simply returns a capitalized version of _input_. If _input_ is nil or an emtpy string, raises a CardError
 	def converter(input)
 		abbrev = {"$" => "Joker", "K" => "King", "J" => "Jack", "Q" => "Queen", "A" => "Ace"}
 		if input == input.capitalize!
@@ -51,9 +51,9 @@ class Card # Represents a card in the deck
 			when "Joker" then 0
 		end
 	end
-# Creates a new card
-    def initialize(card)
-    	values, values.default, @value, @num = {"Ace" => 1, 4 => 0, 9 => 0, "Jack" => 0, "Joker" => 0, "King" => 99, "Queen" => -10}, card.to_i, values[card], card
+# Creates a new card with num as the attribute :num
+    def initialize(num)
+    	values, values.default, @value, @num = {"Ace" => 1, 4 => 0, 9 => 0, "Jack" => 0, "Joker" => 0, "King" => 99, "Queen" => -10}, num.to_i, values[num], num
     end
 end
 class Hand # Creates an object that holds and can play cards. Interacts with Deck objects.
