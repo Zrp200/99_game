@@ -15,5 +15,4 @@ YIELD
 	config.test_files = ['spec/lib/99_game.rb', '.rspec', 'spec/spec_helper.rb']
 	config.executables << '99_game'
 	config.metadata = {"Recommended Ruby Version" => "~> 2.0.0"}
-	config.development_dependencies = ["inch"]
-end 
+end
