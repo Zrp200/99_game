@@ -1,25 +1,26 @@
 # Tests if obj is not nil.
-def not_nil?(obj)
-	if obj.nil?
-		return false
-	else
-		return true
+	def not_nil?(obj)
+		if obj.nil?
+			return false
+		else
+			return true
+		end
 	end
-end
 # Converts _input_ to an integer if String#capitalize does something. If _input_ is an abbreviation, _input_ is converted to what it stands for. Otherwise, it simply returns a capitalized version of _input_. If _input_ is nil or an emtpy string, raises a CardError
-def converter(input)
-	abbrev = {"$" => "Joker", "K" => "King", "J" => "Jack", "Q" => "Queen", "A" => "Ace"}
-	if input == input.capitalize!
-		return input.to_i
-	elsif not_nil? abbrev[input]
-		return abbrev[input]
-	elsif input.nil? || input == String.new
-		raise CardError, "Input not allowed"
-	else
-		return input
+	def converter(input)
+		abbrev = {"$" => "Joker", "K" => "King", "J" => "Jack", "Q" => "Queen", "A" => "Ace"}
+		if input == input.capitalize!
+			return input.to_i
+		elsif not_nil? abbrev[input]
+			return abbrev[input]
+		elsif input.nil? || input == String.new
+			raise CardError, "Input not allowed"
+		else
+			return input
+		end
 	end
-end
-class CardError < Exception; end
+# Expected errors
+	class CardError < Exception; end
 class Card # Represents a card in the deck
 	attr_reader :num
 	@@value = {"Ace" => 1, 4 => 0, 9 => 0, "Jack" => 0, "Joker" => 0, "King" => 99, "Queen" => -10}
@@ -46,39 +47,40 @@ class Card # Represents a card in the deck
 # Creates a new card
     def initialize(card); @num = card; end
 end
-class Hand # Creates an object that holds and can play cards
-    attr_reader :hand
-# Creates a new Hand
-    def initialize(deck); @hand, @deck = [deck.draw, deck.draw, deck.draw], deck; end
-# Gameplay method
-    def play(card)
-		if card.num == "King"; $value = 99
-		elsif card.num == "Joker"; $value = 0
-		else; $value += card.value
-		end
-		i, done = 0, false
-		for index in @hand
-			if index.num == card.num and not done
-				discard = @hand[i]
-				@hand.delete_at(i)
-				@hand.push @deck.draw
-				@deck.discard discard
-				done = true
+class Hand # Creates an object that holds and can play cards. Interacts with Deck objects.
+	# The actual hand
+    	attr_reader :hand
+	# Creates a new Hand. The deck argument tells the object which deck to use in Hand#play
+    	def initialize(deck); @hand, @deck = [deck.draw, deck.draw, deck.draw], deck; end
+	# Gameplay method. The parameter 'card' is the card being played.
+    	def play(card)
+			if card.num == "King"; $value = 99
+			elsif card.num == "Joker"; $value = 0
+			else; $value += card.value
 			end
-			i += 1
+			i, done = 0, false
+			for index in @hand
+				if index.num == card.num and not done
+					discard = @hand[i]
+					@hand.delete_at(i)
+					@hand.push @deck.draw
+					@deck.discard discard
+					done = true
+				end
+				i += 1
+			end
 		end
+	# Allows you to see your cards.
+    	def view
+			print "\tThese are your cards: "
+        	@hand.each {|card| print "\t#{card.num}"}
+    	end
+end
+# Combines sleep and a newline. 'p' is the amount of time waited.
+	def pause(p)
+    	sleep p
+    	puts
 	end
-# Allows you to see your cards.
-    def view
-	print "\tThese are your cards: "
-        @hand.each {|card| print "\t#{card.num}"}
-    end
-end
-# Combines sleep and a newline.
-def pause(p)
-    sleep p
-    puts
-end
 class Deck # Cards are stored in these objects
 	def initialize # Creates a new deck that can now be used for playing the game
 		@cards = Array.new
@@ -102,7 +104,7 @@ class Deck # Cards are stored in these objects
 	end
 	# Draw from the deck
 		def draw; @cards.shift; end
-	# Discard to the deck
+	# Adds 'card' to the deck. Used with Hand#play.
 		def discard(card); @cards.push card; end
 end
 
