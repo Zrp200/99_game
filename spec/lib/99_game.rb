@@ -1,4 +1,3 @@
-require_relative "spec_helper"
 require "99_game"
 describe "$deck" do
 	describe "#length" do
@@ -29,18 +28,19 @@ describe "converter" do
 		end
 	end
 end
-describe "Hand" do
+describe Hand do
 	hand = Hand.new
 	describe "#hand" do
 		describe "#length" do
-			it "should == 3" do; expect(hand.hand.length).to eq 3; end
+			subject {hand.hand.length}
+			it "should == 3" do; expect(subject).to eq 3; end
 		end
 	end
 	describe "#initialize" do
 		describe "$deck" do
 			it "should have three less cards after initialization" do
 				deck1, hand, deck2 = $deck.length, Hand.new, $deck.length
-				expect(deck1).to > deck2
+				expect(deck1).to be > deck2
 			end
 		end
 	end
