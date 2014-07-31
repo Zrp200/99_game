@@ -1,10 +1,13 @@
-require "99_game"
-describe "$deck" do
+require 'spec_helper'
+include CodeClimate::TestReporter
+deck = Deck.new
+describe Deck do
+	subject {Deck.new}
 	describe "#length" do
-		it "should == 54" do; expect($deck.length + 6).to eq 54; end
+		it "should == 54" do; expect(subject.length + 6).to eq 54; end
 	end
 end
-describe "Card" do
+describe Card do
 	cards = ["Ace", "King", "Queen", "Jack", "Joker"] + (2..10).to_a
 	describe "#value" do
 		for card in cards
@@ -29,7 +32,7 @@ describe "converter" do
 	end
 end
 describe Hand do
-	hand = Hand.new
+	hand = Hand.new Deck.new
 	describe "#hand" do
 		describe "#length" do
 			subject {hand.hand.length}
@@ -39,10 +42,9 @@ describe Hand do
 	describe "#initialize" do
 		describe "$deck" do
 			it "should have three less cards after initialization" do
-				deck1, hand, deck2 = $deck.length, Hand.new, $deck.length
+				deck1, hand, deck2 = deck.length, Hand.new, deck.length
 				expect(deck1).to be > deck2
 			end
 		end
 	end
 end
-				

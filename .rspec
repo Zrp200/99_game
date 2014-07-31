@@ -1,4 +1,4 @@
 --color
---warnings
---require spec_helper
+--require spec_helper.rb
 --format doc
+--warnings

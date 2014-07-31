@@ -53,14 +53,17 @@ class Card # Represents a card in the deck
 	end
 # Creates a new card with num as the attribute :num
     def initialize(num)
-    	values, values.default, @value, @num = {"Ace" => 1, 4 => 0, 9 => 0, "Jack" => 0, "Joker" => 0, "King" => 99, "Queen" => -10}, num.to_i, values[num], num
+    	values = {"Ace" => 1, 4 => 0, 9 => 0, "Jack" => 0, "Joker" => 0, "King" => 99, "Queen" => -10}
+		values.default, @value, @num = num.to_i, values[num], num
     end
 end
 class Hand # Creates an object that holds and can play cards. Interacts with Deck objects.
 	# The actual hand
     	attr_reader :hand
 	# Creates a new Hand. The deck argument tells the object which deck to use in Hand#play
-    	def initialize(deck); @hand, @deck = [deck.draw, deck.draw, deck.draw], deck; end
+    	def initialize(deck_in_use)
+			@hand, @deck = [deck_in_use.draw, deck_in_use.draw, deck_in_use.draw], deck_in_use
+		end
 	# Gameplay method. The parameter 'card' is the card being played.
     	def play(card)
 			if card.num == "King"; $value = 99
