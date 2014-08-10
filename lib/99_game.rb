@@ -36,32 +36,35 @@ class Card # Represents a card in the deck
 		attr_reader :num
 	# Gives the Card's value
 		attr_reader :value
-# Backup method for Card#value
-	def _value
-		return case @num
-			when "Ace" then 1
-			when 2..3 then @num
-			when 4 then 0
-			when 5..8 then @num
-			when 9 then 0
-			when 10 then 10
-			when "Jack" then 0
-			when "Queen" then -10
-			when "King" then 99
-			when "Joker" then 0
+	# Backup method for Card#value
+		def _value
+			return case @num
+				when "Ace" then 1
+				when 2..3 then @num
+				when 4 then 0
+				when 5..8 then @num
+				when 9 then 0
+				when 10 then 10
+				when "Jack" then 0
+				when "Queen" then -10
+				when "King" then 99
+				when "Joker" then 0
+			end
 		end
-	end
-# Creates a new card with num as the attribute :num
-    def initialize(num)
-		@num, @value = num, case num
-			when "Ace" then 1
-			when 4 or 9 or "Jack" or "Joker" then 0
-			when "King" then 99
-			when  "Queen" then -10
-		else
-			num.to_i
+	# Creates a new card with num as the attribute :num
+		def initialize(num)
+			@num, @value = num, case num
+				when "Ace" then 1
+				when 4 then 0
+				when 9 then 0
+				when "Jack" then 0
+				when "Joker" then 0
+				when "King" then 99
+				when  "Queen" then -10
+			else
+				num.to_i
+			end
 		end
-    end
 end
 class Hand # Creates an object that holds and can play cards. Interacts with Deck objects.
 	# The actual hand
