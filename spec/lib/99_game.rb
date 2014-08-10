@@ -3,7 +3,7 @@ deck = Deck.new
 describe Deck do
 	subject {Deck.new}
 	describe "#length" do
-		it "should == 54" do; expect(subject.length + 6).to eq 54; end
+		it "should == 54" do; expect(subject.cards.length).to eq 54; end
 	end
 end
 describe Card do
