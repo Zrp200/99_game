@@ -20,7 +20,7 @@
 	def converter(input)
 		abbrev = {"$" => "Joker", "K" => "King", "J" => "Jack", "Q" => "Queen", "A" => "Ace"}
 		if input.to_i == 0
-			case input.capitialize
+			case input.capitalize
 				when "$" then "Joker"
 				when "K" then "King"
 				when "J" then "Jack"
