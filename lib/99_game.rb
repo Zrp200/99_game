@@ -6,7 +6,7 @@
         		test_value = 0
         	else; test_value = actual_value + card.value
 	    	end
-	    	value = -100 if value > 99
+	    	test_value = -100 if test_value > 99
     	end
 # Tests if obj is not nil.
 	def not_nil?(obj)
