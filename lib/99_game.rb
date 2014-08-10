@@ -94,6 +94,8 @@ end
     	puts
 	end
 class Deck # Cards are stored in these objects
+	# The contents of the deck
+		attr_reader :cards
 	def initialize # Creates a new deck that can now be used for playing the game
 		@cards = Array.new
 		4.times do # Add the cards to the deck
