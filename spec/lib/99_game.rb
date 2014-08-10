@@ -1,5 +1,4 @@
 require 'spec_helper'
-include CodeClimate::TestReporter
 deck = Deck.new
 describe Deck do
 	subject {Deck.new}
