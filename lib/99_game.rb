@@ -19,6 +19,7 @@
 # Converts input to an integer if String#capitalize does something. If parameter input is an abbreviation, _input_ is converted to what it stands for. Otherwise, it simply returns a capitalized version of _input_. If _input_ is nil or an emtpy string, raises a CardError
 	def converter(input)
 		abbrev = {"$" => "Joker", "K" => "King", "J" => "Jack", "Q" => "Queen", "A" => "Ace"}
+		raise(CardError, "Input cannot be blank") if input == String.new
 		if input.to_i == 0
 			case input.capitalize
 				when "$" then "Joker"
@@ -125,7 +126,7 @@ class Deck # Cards are stored in these objects
 			@cards.push Card.new(2)
 		end
 		2.times {@cards.push Card.new("Joker")}
-		@cards.shuffle!
+		50.times {@cards.shuffle!}
 	end
 	# Draw from the deck
 		def draw; @cards.shift; end
