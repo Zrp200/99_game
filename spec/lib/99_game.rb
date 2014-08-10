@@ -1,4 +1,3 @@
-require 'spec_helper'
 deck = Deck.new
 describe Deck do
 	subject {Deck.new}
@@ -34,15 +33,15 @@ describe Hand do
 	hand = Hand.new Deck.new
 	describe "#hand" do
 		describe "#length" do
-			subject {hand.hand.length}
-			it "should == 3" do; expect(subject).to eq 3; end
+			subject { hand.hand.length }
+			it "should == 3" do; expect( subject ).to eq 3; end
 		end
 	end
 	describe "#initialize" do
-		describe "$deck" do
+		describe "Deck#length" do
 			it "should have three less cards after initialization" do
-				deck1, hand, deck2 = deck.length, Hand.new, deck.length
-				expect(deck1).to be > deck2
+				deck1, hand, deck2 = deck.cards.length, Hand.new( deck ), deck.cards.length
+				expect( deck1 ).to be > deck2
 			end
 		end
 	end
