@@ -19,9 +19,9 @@
 # Converts input to an integer if String#capitalize does something. If _input_ is an abbreviation, _input_ is converted to what it stands for. Otherwise, it simply returns a capitalized version of _input_. If _input_ is nil or an emtpy string, raises a CardError
 	def converter(input)
 		abbrev = {"$" => "Joker", "K" => "King", "J" => "Jack", "Q" => "Queen", "A" => "Ace"}
-		if input == input.capitalize!
+		if input == input.capitalize
 			return input.to_i
-		elsif not_nil? abbrev[input]
+		elsif not_nil? abbrev[ input ]
 			return abbrev[input]
 		elsif input.nil? || input == String.new
 			raise CardError, "Input not allowed"
