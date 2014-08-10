@@ -22,7 +22,7 @@
 		if input == input.capitalize
 			return input.to_i
 		elsif not_nil? abbrev[ input ]
-			return abbrev[input]
+			return abbrev[ input ]
 		elsif input.nil? || input == String.new
 			raise CardError, "Input not allowed"
 		else
