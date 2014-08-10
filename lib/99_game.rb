@@ -53,8 +53,14 @@ class Card # Represents a card in the deck
 	end
 # Creates a new card with num as the attribute :num
     def initialize(num)
-    	values = {"Ace" => 1, 4 => 0, 9 => 0, "Jack" => 0, "Joker" => 0, "King" => 99, "Queen" => -10}
-		values.default, @value, @num = num.to_i, values[num], num
+		@num, @value = num, case num
+			when "Ace" then 1
+			when 4 or 9 or "Jack" or "Joker" then 0
+			when "King" then 99
+			when  "Queen" then -10
+		else
+			num.to_i
+		end
     end
 end
 class Hand # Creates an object that holds and can play cards. Interacts with Deck objects.
@@ -73,8 +79,8 @@ class Hand # Creates an object that holds and can play cards. Interacts with Dec
 			i, done = 0, false
 			for index in @hand
 				if index.num == card.num and not done
-					discard = @hand[i]
-					@hand.delete_at(i)
+					discard = @hand[ i ]
+					@hand.delete_at i
 					@hand.push @deck.draw
 					@deck.discard discard
 					done = true
