@@ -6,8 +6,8 @@ BEGIN { # Looks at its arguements
 	ARGV[0] = "-v" if ARGV[0] == "--version"
 	case ARGV[0]
 		when "-v"
-    		puts "2.0.0"
-    		exit
+    			puts "2.0.1"
+    			exit
 		when "-h"
 			puts "\u00B7 Commands"
 			puts "\t\u00b7 -v/--version - display version"
@@ -31,9 +31,9 @@ BEGIN { # Looks at its arguements
   	end
 }
 END { # Thanks for playing
-    sleep(2)
+    sleep(1.5)
     puts "\n\tThanks for playing 99!"
-    sleep(3)
+    sleep(2.5)
 }
 $value, value1, value2, value3, dealer, user = 0,0,0,0, Hand.new(deck), Hand.new(deck)
 loop do
@@ -58,18 +58,18 @@ loop do
    	$card = dealer.hand[2].num
         dealer.play(dealer.hand[2])
     end
-    pause(2)
+    pause(1.5)
     puts "\tThe dealer played a(n) #{$card}"
     pause(0.5)
     puts "\tThe value is now #{$value}"
     puts
-    pause(2)
+    pause(1.5)
     if $value > 99 # Runs when you win and exits loop
 	    puts "\tYou win!"
 	    break
     end
     puts "\tIt's your turn!"
-    pause(1.5)
+    pause(1)
     user.view
     pause(0.5)
     print "\tPick a card to play by typing in the name of the card => "
@@ -80,11 +80,11 @@ loop do
     		turn = false
     	end
     end	
-	pause(1.5)
+	pause(1)
 	puts "\tYou drew a(n) #{user.hand[2].num}"
 	pause(0.5)
     puts "\tThe value is now #{$value}"
-    pause(2)
+    pause(1.5)
     if $value > 99 # Runs when dealer wins and exits loop
 	    puts "\tYou lose"
 	    break
