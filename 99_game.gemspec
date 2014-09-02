@@ -12,7 +12,7 @@ YIELD
 	game.files = %w(lib/99_game.rb)
 	game.license = 'MIT'
 	game.homepage = 'https://rubygems.org/gems/99_game'
-	game.test_files = %w(spec/lib/99_game.rb .rspec spec/spec_helper.rb]
+	game.test_files = %w(spec/lib/99_game.rb .rspec spec/spec_helper.rb)
 	game.executables << '99_game'
 	game.metadata = {"Recommended Ruby Version" => "~> 2.0.0"}
 end
