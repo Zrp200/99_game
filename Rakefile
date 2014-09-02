@@ -9,3 +9,4 @@ namespace 'build' do
         `git commit 99_game-2.0.1.gem -m "rake build:201"`
         `git push`
     end
+end
