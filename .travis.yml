@@ -2,6 +2,7 @@ language: ruby
 before_install:
 - gem build 99_game.gemspec
 - gem install 99_game-2.0.2.gem
+- gem install rspec
 rvm:
 - 2.1.2
 - 2.1.1
