@@ -1,8 +1,7 @@
 language: ruby
 before_install:
 - gem build 99_game.gemspec
-- gem install 99_game-2.0.2.gem
-- gem install rspec
+- gem install 99_game-2.0.2.gem rspec inch
 rvm:
 - 2.1.2
 - 2.1.1
@@ -10,4 +9,6 @@ rvm:
 - 2.0.0
 - 1.9.3
 - jruby-19mode
-script: bundle exec rspec spec
+script: 
+- rspec spec
+- inch
