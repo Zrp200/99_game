@@ -37,8 +37,7 @@ END { # Thanks for playing
 }
 $value, value1, value2, value3, dealer, user = 0,0,0,0, Hand.new(deck), Hand.new(deck)
 loop do
-    puts
-    puts "\tIt is the dealer's turn!"
+    puts "\n\tIt is the dealer's turn!"
     i = 1
     for card in dealer.hand
         case i
