@@ -1,7 +1,7 @@
 create_deck = proc {Deck.new true}
 deck = create_deck.call
 describe Deck do
-	describe create_deck.call.length do
+	describe create_deck.call.cards.length do
 		it {is_expected.to eq(54)}
 	end
 end
@@ -18,7 +18,7 @@ describe "converter" do
 	end
 end
 describe Hand do
-	hand = Hand.new Deck.new
+	hand = Hand.new create_deck.call
 	describe "#hand" do
 		describe "#length" do
 			subject { hand.hand.length }
