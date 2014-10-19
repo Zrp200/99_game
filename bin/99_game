@@ -47,12 +47,12 @@ loop do
         end
         i += 1
     end
-    if value1 >= value2 and value1 >= value3
+    if value1 >= value2 && value1 >= value3
 	$card = dealer.hand[0].num
-        dealer.play(dealer.hand[0])
-    elsif value2 >= value3
+        dealer.play dealer.hand[0]
+    elsif value1 <= value2 && value2 >= value3
     	$card = dealer.hand[1].num
-        dealer.play(dealer.hand[1])
+        dealer.play dealer.hand[1]
     else
    	$card = dealer.hand[2].num
         dealer.play(dealer.hand[2])

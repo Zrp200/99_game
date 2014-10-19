@@ -1,7 +1,6 @@
 language: ruby
 before_install:
-- gem build 99_game.gemspec
-- gem install 99_game-2.0.2.gem rspec inch
+- gem install rspec
 rvm:
 - 2.1.2
 - 2.1.1
@@ -9,6 +8,18 @@ rvm:
 - 2.0.0
 - 1.9.3
 - jruby-19mode
-script: 
+- ruby-head
+script:
 - rspec spec
-- inch
+matrix:
+ allow_failures:
+ - rvm: ruby-head
+deploy:
+  provider: rubygems
+  api_key:
+    secure: y2bXWjmx+gW5/e9s/Amo76UnL91dsa32rSpOliX4JGHVdGc9jLhAqMLHOpqzVVMzbGNHfcN8ri7WHVV3J+ChefKKYgPqcRujiY9uaM6vPAk5jqTK9Q8UUl06RfJOWumXJfa4Ne7tOI3eKq/HDgbMDWPLiNi5quKpschYxJRndX4=
+  gem: 99_game
+  on:
+    tags: true
+    repo: Zrp200/99_game
+    rvm: ruby-head

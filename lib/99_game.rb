@@ -7,6 +7,7 @@
         	else; test_value = actual_value + card.value
 	    	end
 	    	test_value = -100 if test_value > 99
+		return test_value
     	end
 # Tests if obj is not nil.
 	def not_nil?(obj)
@@ -71,7 +72,7 @@ class Card # Represents a card in the deck
 end
 class Hand # Creates an object that holds and can play cards. Interacts with Deck objects.
 	# The actual hand
-    	attr_reader :hand
+    	attr_accessor :hand
 	# Creates a new Hand. The deck argument tells the object which deck to use in Hand#play
     	def initialize(deck_in_use)
 			@hand, @deck = [deck_in_use.draw, deck_in_use.draw, deck_in_use.draw], deck_in_use
