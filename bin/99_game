@@ -68,9 +68,9 @@ loop do
 	    break
     end
     puts "\tIt's your turn!"
-    pause(1)
+    pause 1
     user.view
-    pause(0.5)
+    pause 0.5
     print "\tPick a card to play by typing in the name of the card => "
     input, turn = gets.chomp, true
     for card in user.hand
