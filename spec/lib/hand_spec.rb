@@ -1,8 +1,8 @@
 describe "CPU" do
   s = Hand.new Deck.new
-  s.hand.hand = [Card.new("King", Card::SPADES), Card.new("Joker"), Card.new(2, Card::DIAMONDS)]
+  s.hand = [Card.new("King", Card::SPADES), Card.new("Joker"), Card.new(2, Card::DIAMONDS)]
   describe "test" do
-    tests = proc {|index| test(s.hand.hand[index], 50, nil)}
+    tests = proc {|index| test(s.hand[index], 50, nil)}
     v1 = tests.call 0
     v2 = tests.call 1
     v3 = tests.call 2
