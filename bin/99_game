@@ -79,7 +79,7 @@ loop do
     		turn = false
     	end
     end	
-	pause(1)
+	pause 1
 	puts "\tYou drew a(n) #{user.hand[2].num}"
 	pause(0.5)
     puts "\tThe value is now #{$value}"
