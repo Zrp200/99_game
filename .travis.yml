@@ -23,4 +23,3 @@ deploy:
     tags: false
     repo: Zrp200/99_game
     rvm: ruby-head
-    all_branches: true
