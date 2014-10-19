@@ -1,7 +1,7 @@
 create_deck = proc {Deck.new true}
-deck = create_deck
+deck = create_deck.call
 describe Deck do
-	describe create_deck.length do
+	describe create_deck.call.length do
 		it {is_expected.to eq(54)}
 	end
 end
