@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 require '99_game'
-deck = Deck.new
+include CardDeck
+deck = Deck.new true
 BEGIN { # Looks at its arguements
 	ARGV[0] = "-h" if ARGV[0] == "--help"
 	ARGV[0] = "-v" if ARGV[0] == "--version"
