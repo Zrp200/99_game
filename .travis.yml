@@ -1,6 +1,8 @@
 language: ruby
 before_install:
-- gem install rspec
+- gem update --system
+before_script:
+- gem install rspec card_deck
 rvm:
 - 2.1.2
 - 2.1.1
@@ -10,8 +12,10 @@ rvm:
 - jruby-19mode
 - ruby-head
 script:
-- rspec spec
+- gem build 99_game.gemspec
+- rspec
 matrix:
+ fast_finish: true
  allow_failures:
  - rvm: ruby-head
 deploy:
