@@ -1,3 +1,4 @@
+require "card_deck"
 # Used by the CPU to determine which card to play. Parameter card needs to be an instance of Card.
 	def test(card, actual_value, test_value)
         	if card.num == "King"
@@ -35,13 +36,9 @@
 	end
 # Expected errors
 	class CardError < Exception; end
-class Card # Represents a card in the deck
-	# Gives the number on the card
-		attr_reader :num
-	# Gives the Card's value
-		attr_reader :value
+class CardDeck::Card # Represents a card in the deck
 	# Backup method for Card#value
-		def _value
+		def value
 			return case @num
 				when "Ace" then 1
 				when 2..3 then @num
@@ -53,20 +50,6 @@ class Card # Represents a card in the deck
 				when "Queen" then -10
 				when "King" then 99
 				when "Joker" then 0
-			end
-		end
-	# Creates a new card with num as the attribute :num
-		def initialize(num)
-			@num, @value = num, case num
-				when "Ace" then 1
-				when 4 then 0
-				when 9 then 0
-				when "Jack" then 0
-				when "Joker" then 0
-				when "King" then 99
-				when  "Queen" then -10
-			else
-				num.to_i
 			end
 		end
 end
@@ -106,29 +89,7 @@ end
     	sleep p
     	puts
 	end
-class Deck # Cards are stored in these objects
-	# The contents of the deck
-		attr_reader :cards
-	def initialize # Creates a new deck that can now be used for playing the game
-		@cards = Array.new
-		4.times do # Add the cards to the deck
-			@cards.push Card.new("Ace")
-			@cards.push Card.new("King")
-			@cards.push Card.new("Queen")
-			@cards.push Card.new("Jack")
-			@cards.push Card.new(10)
-			@cards.push Card.new(9)
-			@cards.push Card.new(8)
-			@cards.push Card.new(7)
-			@cards.push Card.new(6)
-			@cards.push Card.new(5) 
-			@cards.push Card.new(4) 
-			@cards.push Card.new(3)
-			@cards.push Card.new(2)
-		end
-		2.times {@cards.push Card.new("Joker")}
-		50.times {@cards.shuffle!}
-	end
+class CardDeck::Deck # Cards are stored in these objects
 	# Draw from the deck
 		def draw; @cards.shift; end
 	# Adds 'card' to the deck. Used with Hand#play.
