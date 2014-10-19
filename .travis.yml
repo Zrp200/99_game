@@ -12,7 +12,8 @@ rvm:
 - jruby-19mode
 - ruby-head
 script:
-- rspec spec
+- gem build 99_game.gemspec
+- rspec
 matrix:
  allow_failures:
  - rvm: ruby-head
