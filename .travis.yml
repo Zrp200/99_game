@@ -1,9 +1,9 @@
 language: ruby
 before_install:
+- chmod a+x bin/99_game
 - gem update --system
 before_script:
 - gem install rspec card_deck
-- chmod a+x bin/99_game
 rvm:
 - 1.8.7
 - 1.9.2
