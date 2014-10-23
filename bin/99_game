@@ -7,7 +7,7 @@ BEGIN { # Looks at its arguements
 	ARGV[0] = "-v" if ARGV[0] == "--version"
 	case ARGV[0]
 		when "-v"
-    			puts "2.0.1"
+    			puts "3.0.0"
     			exit
 		when "-h"
 			puts "\u00B7 Commands"
@@ -32,9 +32,9 @@ BEGIN { # Looks at its arguements
   	end
 }
 END { # Thanks for playing
-    sleep(1.5)
+    sleep 1.5
     puts "\n\tThanks for playing 99!"
-    sleep(2.5)
+    sleep 2.5
 }
 $value, value1, value2, value3, dealer, user = 0,0,0,0, Hand.new(deck), Hand.new(deck)
 loop do
