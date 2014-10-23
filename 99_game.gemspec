@@ -16,5 +16,5 @@ YIELD
 	game.homepage = 'https://rubygems.org/gems/99_game'
 	game.test_files = %w(spec/lib/99_game_spec.rb .rspec spec/spec_helper.rb)
 	game.executables << '99_game'
-	game.required_ruby_version = '>= 1.9.3'
+	game.required_ruby_version = '>= 1.8.7'
 end
