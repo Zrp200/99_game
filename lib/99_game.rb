@@ -83,6 +83,7 @@ class Hand # Creates an object that holds and can play cards. Interacts with Dec
 			print "\tThese are your cards: "
         	@hand.each {|card| print "\t#{card.num}"}
     	end
+    	alias inspect hand
 end
 # Combines sleep and a newline. 'p' is the amount of time waited.
 	def pause(p)
