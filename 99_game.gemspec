@@ -2,7 +2,7 @@ Gem::Specification.new do |game|
 	game.name = "99_game"
 	game.author = 'Zachary Perlmutter'
 	game.email = 'zrp200@gmail.com'
-	game.version = '3.0.1'
+	game.version = '3.1.0'
 	game.version = "#{game.version}-#{ENV['TRAVIS_BUILD_NUMBER']}" if ENV['TRAVIS'] && !ENV['Tag']
 	game.summary = 'The game of 99.'
 	game.description = <<YIELD
