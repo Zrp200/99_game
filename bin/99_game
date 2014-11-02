@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require '99_game'
 include CardDeck
-deck = Deck.new true
+deck = Deck.new jokers: true
 BEGIN { # Looks at its arguements
 	ARGV[0] = "-h" if ARGV[0] == "--help"
 	ARGV[0] = "-v" if ARGV[0] == "--version"
@@ -76,7 +76,7 @@ loop do
     input, turn = gets.chomp, true
     for card in user.hand
     	if card.num == converter(input) && turn
-    		user.play(card) 
+    		user.play card
     		turn = false
     	end
     end	
