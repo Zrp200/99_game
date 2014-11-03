@@ -32,4 +32,3 @@ deploy:
   on:
     tags: false
     repo: Zrp200/99_game
-    rvm: ruby-head
