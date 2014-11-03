@@ -1,4 +1,4 @@
-create_deck = proc {Deck.new true}
+create_deck = proc {Deck.new jokers: true}
 deck = create_deck.call
 describe Deck do
 	describe create_deck.call.cards.length do
