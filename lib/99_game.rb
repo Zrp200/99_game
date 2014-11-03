@@ -37,7 +37,7 @@ require "card_deck"
 # Expected errors
 	class CardError < Exception; end
 class CardDeck::Card # Represents a card in the deck
-	# Backup method for Card#value
+	# Value of the card
 		def value
 			return case @num
 				when "Ace" then 1
@@ -80,7 +80,7 @@ class Hand # Creates an object that holds and can play cards. Interacts with Dec
 		end
 	# Allows you to see your cards.
     	def view
-			print "\tThese are your cards: "
+		print "\tThese are your cards: "
         	@hand.each {|card| print "\t#{card.num}"}
     	end
     	alias inspect hand
