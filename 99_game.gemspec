@@ -2,8 +2,8 @@ Gem::Specification.new do |game|
 	game.name = "99_game"
 	game.author = 'Zachary Perlmutter'
 	game.email = 'zrp200@gmail.com'
-	game.version = '3.0.1'
-	# game.version = "#{game.version}-#{ENV['TRAVIS_BUILD_NUMBER']}" if ENV['TRAVIS'] && !ENV['Tag']
+	game.version = '3.0.2'
+	game.version = "#{game.version}-#{ENV['TRAVIS_BUILD_NUMBER']}" if ENV['TRAVIS'] && !ENV['Tag']
 	game.summary = 'The game of 99.'
 	game.description = <<YIELD
 This is a text-based interpretation of the card game 99. Comes with the gem in the form of an executable. Make sure to read the rules in `99_game -h` before playing.
