@@ -7,7 +7,7 @@ BEGIN { # Looks at its arguements
 	ARGV[0] = "-v" if ARGV[0] == "--version"
 	case ARGV[0]
 		when "-v"
-    			puts "3.1.1"
+    			puts "3.1.2"
     			exit
 		when "-h"
 			puts "\u00B7 Commands"
