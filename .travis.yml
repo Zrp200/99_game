@@ -1,7 +1,7 @@
 language: ruby
 install: bundle
 rvm: 2.0.0
-script: bundle exec rspec spec -f doc --color
+script: bundle exec rspec -f doc --color
 matrix:
  fast_finish: true
  allow_failures:
