@@ -1,3 +1,4 @@
+require "spec_helper"
 create_deck = proc {Deck.new jokers: true}
 deck = create_deck.call
 describe Deck do
