@@ -9,6 +9,7 @@ Gem::Specification.new do |game|
 This is a text-based interpretation of the card game 99. Comes with the gem in the form of an executable. Make sure to read the rules in `99_game -h` before playing.
 YIELD
 	game.add_runtime_dependency "card_deck", "~> 1.1"
+	game.add_development_dependency "rspec"
 	game.bindir = 'bin'
 	game.extra_rdoc_files = %w(README.md LICENSE.txt)
 	game.files = %w(lib/99_game.rb)
