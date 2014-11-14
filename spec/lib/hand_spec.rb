@@ -1,3 +1,4 @@
+require "spec_helper"
 describe "CPU" do
   s = Hand.new Deck.new
   s.hand = [Card.new("King", Card::SPADES), Card.new("Joker"), Card.new(2, Card::DIAMONDS)]
