@@ -1,3 +1,4 @@
+require_relative "99_game.rb"
 def converter(input) # Converts input to an integer if String#capitalize does something. If parameter input is an abbreviation, _input_ is converted to what it stands for. Otherwise, it simply returns a capitalized version of _input_. If _input_ is nil or an emtpy string, raises a CardError
 	abbrev = {"$" => "Joker", "K" => "King", "J" => "Jack", "Q" => "Queen", "A" => "Ace"}
 	raise(CardError, "Input cannot be blank") if input == String.new
