@@ -1,6 +1,5 @@
 require "card_deck"
 require_relative "card.rb"
-require_relative "deck.rb"
 require_relative "hand.rb"
 # Used by the CPU to determine which card to play. Parameter card needs to be an instance of Card.
 	def test(card, actual_value, test_value)
