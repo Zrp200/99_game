@@ -1,30 +1,41 @@
 require_relative "deck.rb"
 class Hand # Creates an object that holds and can play cards. Interacts with Deck objects.
-	# The actual hand
-    	attr_accessor :hand
-	# Creates a new Hand. The deck argument tells the object which deck to use in Hand#play
+
+    	attr_accessor :hand # @return [Array<CardDeck::Card>]
+    	
+=begin
+	@param deck_in_use [CardDeck::Deck]
+=end
     	def initialize(deck_in_use)
-			@hand, @deck = [deck_in_use.draw, deck_in_use.draw, deck_in_use.draw], deck_in_use
+		@hand, @deck = [deck_in_use.draw, deck_in_use.draw, deck_in_use.draw], deck_in_use
+	end
+	
+=begin
+	@param card [CardDeck::Card]
+	@return [void]
+	@note Gameplay method
+=end
+	def play(card)
+		if card.num == "King"; $value = 99
+		elsif card.num == "Joker"; $value = 0
+		else; $value += card.value
 		end
-	# Gameplay method. The parameter 'card' is the card being played.
-    	def play(card)
-			if card.num == "King"; $value = 99
-			elsif card.num == "Joker"; $value = 0
-			else; $value += card.value
+		i, done = 0, false
+		for index in @hand
+			if index.num == card.num and not done
+				discard = @hand[ i ]
+				@hand.delete_at i
+				@hand.push @deck.draw
+				@deck.discard discard
+				done = true
 			end
-			i, done = 0, false
-			for index in @hand
-				if index.num == card.num and not done
-					discard = @hand[ i ]
-					@hand.delete_at i
-					@hand.push @deck.draw
-					@deck.discard discard
-					done = true
-				end
-				i += 1
-			end
+			i += 1
 		end
-	# Allows you to see your cards.
+	end
+		
+=begin
+@return [void]
+=end
     	def view
 		print "\tThese are your cards: "
         	@hand.each {|card| print "\t#{card.num}"}
