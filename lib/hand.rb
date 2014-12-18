@@ -4,18 +4,16 @@ class Hand # Creates an object that holds and can play cards. Interacts with Dec
     	attr_accessor :hand # @return [Array<CardDeck::Card>]
     	
 =begin
-	@param deck_in_use [CardDeck::Deck]
+@param deck_in_use [CardDeck::Deck]
 =end
     	def initialize(deck_in_use)
 		@hand, @deck = [deck_in_use.draw, deck_in_use.draw, deck_in_use.draw], deck_in_use
 	end
 	
 =begin
-	@param card [CardDeck::Card]
-
-	@return [void]
-
-	@note Gameplay method
+@param card [CardDeck::Card]
+@return [void]
+@note Gameplay method
 =end
 	def play(card)
 		if card.num == "King"; $value = 99
