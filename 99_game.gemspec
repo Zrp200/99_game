@@ -1,6 +1,6 @@
 Gem::Specification.new do |game|
 	game.name = "99_game"
-	game.author = 'Zachary Perlmutter'
+	game.author = 'Zachary Roth Perlmutter'
 	game.email = 'zrp200@gmail.com'
 	game.version = ENV['TRAVIS_TAG']
 	game.version = ENV['TRAVIS_JOB_ID'] if ENV['TRAVIS_TAG'] == ""
@@ -11,11 +11,11 @@ YIELD
 	game.add_runtime_dependency "card_deck", "~> 1.1"
 	game.add_development_dependency "rspec", "~> 3.1"
 	game.bindir = 'bin'
-	game.extra_rdoc_files = %w(README.md LICENSE.txt)
-	game.files = %w(lib/99_game.rb lib/converter.rb)
+	game.extra_rdoc_files = Dir.glob "*.md"
+	game.files = Dir.glob "lib/*.rb"
 	game.license = 'MIT'
 	game.homepage = 'https://rubygems.org/gems/99_game'
-	game.test_files = ['spec/lib/99_game_spec.rb', '.rspec', 'spec/spec_helper.rb']
+	game.test_files = Dir.glob "spec/**/*.rb"
 	game.executables << '99_game'
 	game.required_ruby_version = '>= 1.9.2'
 end
