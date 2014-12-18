@@ -20,24 +20,7 @@ require "card_deck"
 	end
 # Converts input to an integer if String#capitalize does something. If parameter input is an abbreviation, _input_ is converted to what it stands for. Otherwise, it simply returns a capitalized version of _input_. If _input_ is nil or an emtpy string, raises a CardError
 # Expected errors
-	class CardError < Exception; end
-class CardDeck::Card # Represents a card in the deck
-	# Value of the card
-		def value
-			return case @num
-				when "Ace" then 1
-				when 2..3 then @num
-				when 4 then 0
-				when 5..8 then @num
-				when 9 then 0
-				when 10 then 10
-				when "Jack" then 0
-				when "Queen" then -10
-				when "King" then 99
-				when "Joker" then 0
-			end
-		end
-end
+class CardError < Exception; end
 class Hand # Creates an object that holds and can play cards. Interacts with Deck objects.
 	# The actual hand
     	attr_accessor :hand
