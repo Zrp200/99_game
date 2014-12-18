@@ -2,13 +2,11 @@ require "spec_helper"
 require "99_game"
 describe "converter" do
 	context "when a number" do
-		it "should return the input as a number" do
-			expect(converter("5")).to eq 5
-		end
+		subject {converter ?5}
+		it {is_expected.to eq 5
 	end
 	context "when an abbreveation" do
-		it "should expand it" do
-			expect(converter("K")).to eq "King"
-		end
+		subject {converter ?K}
+		it {is_expected.to eq "King"}
 	end
 end
