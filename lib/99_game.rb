@@ -1,4 +1,7 @@
 require "card_deck"
+require_relative "card.rb"
+require_relative "deck.rb"
+require_relative "hand.rb"
 # Used by the CPU to determine which card to play. Parameter card needs to be an instance of Card.
 	def test(card, actual_value, test_value)
         	if card.num == "King"
@@ -26,10 +29,4 @@ class CardError < Exception; end
     	sleep p
     	puts
 	end
-class CardDeck::Deck # Cards are stored in these objects
-	# Draw from the deck
-		def draw; @cards.shift; end
-	# Adds 'card' to the deck. Used with Hand#play.
-		def discard(card); @cards.push card; end
-end
 
