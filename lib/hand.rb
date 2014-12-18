@@ -12,7 +12,9 @@ class Hand # Creates an object that holds and can play cards. Interacts with Dec
 	
 =begin
 	@param card [CardDeck::Card]
+
 	@return [void]
+
 	@note Gameplay method
 =end
 	def play(card)
