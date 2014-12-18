@@ -1,3 +1,4 @@
+require_relative "deck.rb"
 class Hand # Creates an object that holds and can play cards. Interacts with Deck objects.
 	# The actual hand
     	attr_accessor :hand
