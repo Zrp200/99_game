@@ -14,3 +14,20 @@ describe "CPU" do
     end
   end
 end
+describe Hand do
+	hand = Hand.new create_deck.call
+	describe "#hand" do
+		describe "#length" do
+			subject { hand.hand.length }
+			it {is_expected.to eq 3}
+		end
+	end
+	describe "#new" do
+		describe "Deck#length" do
+			it "should have three less cards after initialization" do
+				deck1, hand, deck2 = deck.cards.length, Hand.new( deck ), deck.cards.length
+				expect( deck1 ).to be > deck2
+			end
+		end
+	end
+end
