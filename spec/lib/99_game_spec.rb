@@ -1,11 +1,5 @@
 require "spec_helper"
-create_deck = proc {Deck.new jokers: true}
-deck = create_deck.call
-describe Deck do
-	describe create_deck.call.cards.length do
-		it {is_expected.to eq(54)}
-	end
-end
+require "99_game"
 describe "converter" do
 	context "when a number" do
 		it "should return the input as a number" do
