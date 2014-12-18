@@ -1,3 +1,4 @@
+require "card_deck"
 class CardDeck::Card # Represents a card in the deck
 	# Value of the card
 		def value
