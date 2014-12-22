@@ -1,6 +1,6 @@
-require "card_deck"
-require_relative "card.rb"
-require_relative "hand.rb"
+autoload :CardDeck, "card_deck"
+autoload :Card, "card.rb"
+autoload :Hand, "hand.rb"
 
 =begin
 @param card [CardDeck::Card]
