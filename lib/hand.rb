@@ -1,13 +1,13 @@
 require_relative "card.rb"
 class Hand # Creates an object that holds and can play cards. Interacts with Deck objects.
-
+	def deck; Deck.new.cards.shuffle!; end
     	attr_accessor :hand # @return [Array<CardDeck::Card>]
     	
 =begin
 @param deck_in_use [CardDeck::Deck]
 =end
-    	def initialize(deck_in_use)
-		@hand, @deck = [deck_in_use.draw, deck_in_use.draw, deck_in_use.draw], deck_in_use
+    	def initialize
+		@hand = [deck.draw, deck.draw, deck.draw, deck.draw]
 	end
 	
 =begin
