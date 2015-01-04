@@ -15,11 +15,11 @@ describe "CPU" do
   end
 end
 describe Hand do
-	hand = Hand.new
-	describe "#hand" do
-		describe "#length" do
-			subject { hand.hand.length }
-			it {is_expected.to eq 3}
+	its(:deck) {is_expected.to be_instance_of Array}
+	describe "#new" do
+		describe "#hand" do
+			subject {Hand.new.cards}
+			its(:length) {is_expected.to eq 3}
 		end
 	end
 end
