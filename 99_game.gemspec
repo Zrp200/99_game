@@ -10,6 +10,7 @@ This is a text-based interpretation of the card game 99. Comes with the gem in t
 YIELD
 	game.add_runtime_dependency "card_deck", "~> 3.0"
 	game.add_development_dependency "rspec", "~> 3.1"
+	game.add_development_dependency "rspec-its"
 	game.bindir = 'bin'
 	game.extra_rdoc_files = Dir.glob "*.md"
 	game.files = Dir.glob "lib/*.rb"
