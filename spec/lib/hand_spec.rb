@@ -2,7 +2,7 @@ require "spec_helper"
 require "hand"
 describe "CPU" do
   s = Hand.new
-  s.cards = [Card.new("King", Card::SPADES), Card.new("Joker"), Card.new(2, Card::DIAMONDS)]
+  s.cards = [Card.new("King", Card::Spades), Card.new("Joker"), Card.new(2, Card::Diamonds)]
   describe "test" do
     tests = proc {|index| test(s.cards[index], 50, nil)}
     v1 = tests.call 0
