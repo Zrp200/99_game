@@ -40,7 +40,7 @@ $value, value1, value2, value3, dealer, user = 0,0,0,0, Hand.new, Hand.new
 loop do
     puts "\n\tIt is the dealer's turn!"
     i = 1
-    for card in dealer.hand
+    for card in dealer.cards
         case i
 	        when 1 then test card, $value, value1
 	        when 2 then test card, $value, value2
@@ -48,21 +48,20 @@ loop do
         end
         i += 1
     end
-    if value1 >= value2 && value1 >= value3
-	$card = dealer.hand[0].num
-        dealer.play dealer.hand[0]
-    elsif value1 <= value2 && value2 >= value3
-    	$card = dealer.hand[1].num
-        dealer.play dealer.hand[1]
+    if value1 >= value2 & >= value3
+	$card = dealer.cards[0].num
+        dealer.play dealer.cards[0]
+    elsif value2 >= value1 & >= value3
+    	$card = dealer.cards[1].num
+        dealer.play dealer.cards[1]
     else
-   	$card = dealer.hand[2].num
-        dealer.play(dealer.hand[2])
+   	$card = dealer.cards[2].num
+        dealer.play dealer.cards[2]
     end
     pause 1.5 
     puts "\tThe dealer played a(n) #{$card}"
     pause(0.5)
-    puts "\tThe value is now #{$value}"
-    puts
+    puts "\tThe value is now #{$value}\n"
     pause(1.5)
     if $value > 99 # Runs when you win and exits loop
 	    puts "\tYou win!"
@@ -74,7 +73,7 @@ loop do
     pause 0.5
     print "\tPick a card to play by typing in the name of the card => "
     input, turn = gets.chomp, true
-    for card in user.hand
+    for card in user.cards
     	if card.num == converter(input) && turn
     		user.play card
     		turn = false
