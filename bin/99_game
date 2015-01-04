@@ -48,10 +48,10 @@ loop do
         end
         i += 1
     end
-    if value1 >= value2 & >= value3
+    if value1 >= value2 && value1 >= value3
 	$card = dealer.cards[0].num
         dealer.play dealer.cards[0]
-    elsif value2 >= value1 & >= value3
+    elsif value2 >= value1 && value2 >= value3
     	$card = dealer.cards[1].num
         dealer.play dealer.cards[1]
     else
