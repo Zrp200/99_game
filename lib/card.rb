@@ -2,7 +2,7 @@ require "card_deck"
 class CardDeck::Card # Represents a card in the deck
 	# Value of the card
 		def value
-			return case @num
+			case @num
 				when "Ace" then 1
 				when 2..3 then @num
 				when 4 then 0
