@@ -44,5 +44,4 @@ Gameplay method
         	@hand.each {|card| print "\t#{card.num}"}
     	end
     	alias inspect hand
-    	alias to_s hand
 end
