@@ -15,7 +15,6 @@ describe "CPU" do
   end
 end
 describe Hand do
-	its(:deck) {is_expected.to be_instance_of Array}
 	describe "#new" do
 		describe "#cards" do
 			subject {Hand.new.cards}
