@@ -11,9 +11,9 @@ class Hand # Creates an object that holds and can play cards. Interacts with Dec
 	end
 	
 =begin
-@param card [CardDeck::Card]
+@param card [CardDeck::Card] the card played
 @return [void]
-Gameplay method
+@note Gameplay method
 =end
 	def play(card)
 		if card.num == "King"
@@ -38,6 +38,7 @@ Gameplay method
 		
 =begin
 @return [void]
+Displays cards
 =end
     	def view
 		print "\tThese are your cards: "
