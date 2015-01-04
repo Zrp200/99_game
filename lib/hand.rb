@@ -1,4 +1,4 @@
-require_relative "99_game.rb"
+require_relative "card.rb"
 class Hand # Creates an object that holds and can play cards. Interacts with Deck objects.
 	@@deck = Deck.cards.shuffle!
     	attr_accessor :cards # @return [Array<CardDeck::Card>]
