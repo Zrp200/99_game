@@ -7,7 +7,7 @@ class Hand # Creates an object that holds and can play cards. Interacts with Dec
     	
 
     	def initialize
-		@hand = Array.new(4) {Hand.deck.shift}
+		@hand = Array.new(3) {Hand.deck.shift}
 	end
 	
 =begin
