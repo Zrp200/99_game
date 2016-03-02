@@ -18,7 +18,10 @@ describe Hand do
 	describe "#new" do
 		describe "#cards" do
 			subject {Hand.new.cards}
-			its(:length) {is_expected.to eq 3}
+			describe "#length" do
+				subject {Hand.new.cards.length}
+				it {is_expected.to be 3}
+			end
 		end
 	end
 end
