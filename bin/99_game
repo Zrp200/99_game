@@ -42,9 +42,9 @@ loop do
     i = 1
     for card in dealer.cards
         case i
-	        when 1 then test card, $value, value1
-	        when 2 then test card, $value, value2
-	        when 3 then test card, $value, value3
+	        when 1 then value1 = test_card card, $value
+	        when 2 then value2 = test_card card, $value
+	        when 3 then value3 = test_card card, $value
         end
         i += 1
     end
@@ -73,7 +73,7 @@ loop do
     pause 0.5
     print "\tPick a card to play by typing in the name of the card => "
     input, turn = gets.chomp, true
-    for card in user.cards
+    user.cards.each do |card|
     	if card.num == converter(input) && turn
     		user.play card
     		turn = false
