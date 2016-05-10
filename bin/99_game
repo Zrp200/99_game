@@ -73,7 +73,7 @@ loop do
     user.view
     pause 0.5
     print "\tPick a card to play by typing in the name of the card => "
-    input, turn = gets.chomp, true
+    input, playing = gets.chomp, true
     user.cards.each do |card|
     	if card.num == converter(input) && playing
     		user.play card
@@ -81,7 +81,7 @@ loop do
     	end
     end	
 	pause 1
-	puts "\tYou drew a(n) #{user.hand[2].num}"
+	puts "\tYou drew a(n) #{user.cards[2].num}"
 	pause(0.5)
     puts "\tThe value is now #{$value}"
     pause(1.5)
