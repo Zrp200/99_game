@@ -2,6 +2,7 @@
 require '99_game'
 include CardDeck
 deck = Deck.new jokers: true
+deck.cards.shuffle!
 BEGIN { # Looks at its arguements
 	ARGV[0] = "-h" if ARGV.first == "--help"
 	ARGV[0] = "-v" if ARGV[0] == "--version"
