@@ -3,7 +3,7 @@ require '99_game'
 include CardDeck
 deck = Deck.new jokers: true
 BEGIN { # Looks at its arguements
-	ARGV[0] = "-h" if ARGV[0] == "--help"
+	ARGV[0] = "-h" if ARGV.first == "--help"
 	ARGV[0] = "-v" if ARGV[0] == "--version"
 	case ARGV[0]
 		when "-v"
@@ -42,9 +42,9 @@ loop do
     i = 1
     for card in dealer.cards
         case i
-	        when 1 then value1 = test_card card, $value
-	        when 2 then value2 = test_card card, $value
-	        when 3 then value3 = test_card card, $value
+	        when 1 then value1 = card_test card, $value
+	        when 2 then value2 = card_test card, $value
+	        when 3 then value3 = card_test card, $value
         end
         i += 1
     end
@@ -74,9 +74,9 @@ loop do
     print "\tPick a card to play by typing in the name of the card => "
     input, turn = gets.chomp, true
     user.cards.each do |card|
-    	if card.num == converter(input) && turn
+    	if card.num == converter(input) && playing
     		user.play card
-    		turn = false
+    		playing = false
     	end
     end	
 	pause 1
