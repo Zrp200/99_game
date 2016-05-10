@@ -1,11 +1,9 @@
 autoload :CardDeck, "card_deck"
 autoload :Card, "card"
 autoload :Hand, "hand"
-
 =begin
 @param card [CardDeck::Card]
 @param actual_value [Integer]
-@param test_value [Integer]
 @return [Integer]
 @note Used by the CPU to determine which card to play. Parameter card needs to be an instance of Card.
 =end
@@ -48,11 +46,11 @@ def converter(input)
 	raise(CardError, "Input cannot be blank") if input == String.new
 	if input.to_i.zero?
 		case input.capitalize
-			when ?$ then "Joker"
-			when ?K then "King"
-			when ?J then "Jack"
-			when ?Q then "Queen"
-			when ?A then "Ace"
+			when ?$, "Joker" then "Joker"
+			when ?K, "King" then "King"
+			when ?J, "Jack" then "Jack"
+			when ?Q, "Queen" then "Queen"
+			when ?A, "Ace" then "Ace"
 		end
 	else
 		input.to_i

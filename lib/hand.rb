@@ -1,9 +1,10 @@
 require_relative "card.rb"
+$deck = Deck.new(jokers: true).cards.shuffle!
 class Hand # Creates an object that holds and can play cards. Interacts with Deck objects.
 	@@deck = Deck.new.cards.shuffle!
     	attr_accessor :cards # @return [Array<CardDeck::Card>]
     	def initialize
-		@cards = Array.new(3) {@@deck.shift}
+		@cards = Array.new(3) {$deck.shift}
 	end
 	
 =begin
@@ -12,6 +13,7 @@ class Hand # Creates an object that holds and can play cards. Interacts with Dec
 @note Gameplay method
 =end
 	def play(card)
+		raise "Card not found" unless @cards.include? card 
 		if card.num == "King"
 			$value = 99
 		elsif card.num == "Joker"
@@ -24,21 +26,22 @@ class Hand # Creates an object that holds and can play cards. Interacts with Dec
 			if index.num == card.num and not done
 				discard = @cards[i]
 				@cards.delete_at i
-				@cards.push @@deck.shift
-				@@deck.push discard
+				@cards.push $deck.shift
+				$deck.push discard
 				done = true
 			end
 			i += 1
 		end
+		card
 	end
 		
 =begin
 @return [void]
 Displays cards
 =end
-    	def view
-		print "\tThese are your cards: "
-        	@cards.each {|card| print "\t#{card.num}"}
+    	def view_cards
+		print "These are your cards: "
+        	@cards.each {|card| print "\t#{card}"}
     	end
     	alias inspect cards
 end

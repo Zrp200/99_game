@@ -1,8 +1,6 @@
 #!/usr/bin/env ruby
 require '99_game'
 include CardDeck
-deck = Deck.new jokers: true
-deck.cards.shuffle!
 BEGIN { # Looks at its arguements
 	ARGV[0] = "-h" if ARGV.first == "--help"
 	ARGV[0] = "-v" if ARGV[0] == "--version"
@@ -23,56 +21,54 @@ BEGIN { # Looks at its arguements
 			puts "\u00B7 Gameplay"
 			puts "\t\u00B7 Your goal is to get your opponent to bring the value over 99 by playing 1 of your 3 cards."
 			puts "\t\u00B7 A card will usually increase the value by itself, but there are a few exceptions:"
-			puts "\t\t\u00B7 Aces are worth 1"
-			puts "\t\t\u00B7 2 - 10 are worth themselves, with the exception of 4 and 9"
-			puts "\t\t\u00B7 4, 9, and Jacks are worth 0"
-			puts "\t\t\u00B7 Queens decrease the value by 10"
-			puts "\t\t\u00B7 Kings set the value to 99"
-			puts "\t\t\u00B7 Jokers set the value to 0"
+			puts "\t\u00B7 Aces are worth 1"
+			puts "\t\u00B7 2 - 10 are worth themselves, with the exception of 4 and 9"
+			puts "\t\u00B7 4, 9, and Jacks are worth 0"
+			puts "\t\u00B7 Queens decrease the value by 10"
+			puts "\t\u00B7 Kings set the value to 99"
+			puts "\t\u00B7 Jokers set the value to 0"
 			exit
   	end
 }
 END { # Thanks for playing
     sleep 1.5
-    puts "\n\tThanks for playing 99!"
+    puts "\nThanks for playing 99!"
     sleep 2.5
 }
 $value, value1, value2, value3, dealer, user = 0,0,0,0, Hand.new, Hand.new
 loop do
-    puts "\n\tIt is the dealer's turn!"
-    i = 1
+    puts "\nIt's the dealer's turn!"
+    i = 0
     for card in dealer.cards
-        case i
-	        when 1 then value1 = card_test card, $value
-	        when 2 then value2 = card_test card, $value
-	        when 3 then value3 = card_test card, $value
-        end
-        i += 1
+	case i += 1
+		when 1 then value1 = card_test card, $value
+        	when 2 then value2 = card_test card, $value
+        	when 3 then value3 = card_test card, $value
+    	end
     end
     if value1 >= value2 && value1 >= value3
-	$card = dealer.cards[0].num
-        dealer.play dealer.cards[0]
+	$card = dealer.play dealer.cards.first
     elsif value2 >= value1 && value2 >= value3
-    	$card = dealer.cards[1].num
-        dealer.play dealer.cards[1]
+    	$card = dealer.play dealer.cards[1]
     else
-   	$card = dealer.cards[2].num
-        dealer.play dealer.cards[2]
+   	$card = dealer.play dealer.cards[2]
     end
     pause 1.5 
-    puts "\tThe dealer played a(n) #{$card}"
+    puts "The dealer played a(n) #{$card}"
     pause(0.5)
-    puts "\tThe value is now #{$value}\n"
+    puts "The value is now #{$value}\n"
     pause(1.5)
     if $value > 99 # Runs when you win and exits loop
-	    puts "\tYou win!"
+	    puts "You win!"
 	    break
     end
-    puts "\tIt's your turn!"
+    puts "It's your turn!"
     pause 1
-    user.view
+    user.view_cards
     pause 0.5
-    print "\tPick a card to play by typing in the name of the card => "
+    puts "Pick a card to play by typing in the name of the card"
+    sleep 0.2
+    print "> "
     input, playing = gets.chomp, true
     user.cards.each do |card|
     	if card.num == converter(input) && playing
@@ -81,12 +77,12 @@ loop do
     	end
     end	
 	pause 1
-	puts "\tYou drew a(n) #{user.cards[2].num}"
-	pause(0.5)
-    puts "\tThe value is now #{$value}"
+	puts "You drew a(n) #{user.cards[2]}"
+	pause 0.5
+    puts "The value is now #{$value}"
     pause(1.5)
     if $value > 99 # Runs when dealer wins and exits loop
-	    puts "\tYou lose"
+	    puts "You lose..."
 	    break
     end
 end
