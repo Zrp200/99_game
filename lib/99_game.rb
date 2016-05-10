@@ -9,7 +9,7 @@ autoload :Hand, "hand"
 @return [Integer]
 @note Used by the CPU to determine which card to play. Parameter card needs to be an instance of Card.
 =end
-	def test(card, actual_value)
+	def card_test(card, actual_value)
         	if card.num == "King"
 			test_value = 99
         	elsif card.num == "Joker"
