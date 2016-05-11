@@ -7,11 +7,9 @@ class Hand # Creates an object that holds and can play cards. Interacts with Dec
 		@cards = Array.new(3) {$deck.shift}
 	end
 	
-=begin
-@param card [CardDeck::Card] the card played
-@return [void]
-@note Gameplay method
-=end
+# @param card [CardDeck::Card] the card played
+# @return [void]
+# @note Gameplay method
 	def play(card)
 		raise "Card not found" unless @cards.include? card 
 		if card.num == "King"
@@ -29,19 +27,18 @@ class Hand # Creates an object that holds and can play cards. Interacts with Dec
 				@cards.push $deck.shift
 				$deck.push discard
 				done = true
+				$deck.shuffle!
 			end
 			i += 1
 		end
 		card
 	end
 		
-=begin
-@return [void]
-Displays cards
-=end
+# @return [void]
+# Displays cards
     	def view_cards
-		print "These are your cards: "
-        	@cards.each {|card| print "\t#{card}"}
+		print "These are your cards:  "
+        	@cards.each {|card| print "#{card}  "}
     	end
     	alias inspect cards
 end

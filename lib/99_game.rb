@@ -8,15 +8,14 @@ autoload :Hand, "hand"
 @note Used by the CPU to determine which card to play. Parameter card needs to be an instance of Card.
 =end
 	def card_test(card, actual_value)
-        	if card.num == "King"
-			test_value = 99
-        	elsif card.num == "Joker"
-        		test_value = 0
+		test_value = case card.num
+			when "King" then 99
+        		when "Joker" then 0
         	else
-        		test_value = actual_value + card.value
+			actual_value + card.value
 	    	end
-	    	test_value = -100 if test_value > 99
-		return test_value
+	    	test_value = -1 if test_value > 99
+		test_value
     	end
 # Tests if obj is not nil.
 	def not_nil?(obj)

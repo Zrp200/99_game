@@ -6,13 +6,13 @@ BEGIN { # Looks at its arguements
 	ARGV[0] = "-v" if ARGV[0] == "--version"
 	case ARGV[0]
 		when "-v"
-    			puts "3.1.2"
+    			puts "3.2.2"
     			exit
 		when "-h"
 			puts "\u00B7 Commands"
 			puts "\t\u00b7 -v/--version - display version"
 			puts "\t\u00B7 -h/--help - shows this message\n"
-			puts "\u00B7 Abbrevations"
+			puts "\u00B7 Abbrevations can be used instead of inputting the whole name of a card"
 			puts "\t\u00B7 J -> Jack"
 			puts "\t\u00b7 Q -> Queen"
 			puts "\t\u00b7 K -> King"
@@ -21,12 +21,11 @@ BEGIN { # Looks at its arguements
 			puts "\u00B7 Gameplay"
 			puts "\t\u00B7 Your goal is to get your opponent to bring the value over 99 by playing 1 of your 3 cards."
 			puts "\t\u00B7 A card will usually increase the value by itself, but there are a few exceptions:"
-			puts "\t\u00B7 Aces are worth 1"
-			puts "\t\u00B7 2 - 10 are worth themselves, with the exception of 4 and 9"
-			puts "\t\u00B7 4, 9, and Jacks are worth 0"
-			puts "\t\u00B7 Queens decrease the value by 10"
-			puts "\t\u00B7 Kings set the value to 99"
-			puts "\t\u00B7 Jokers set the value to 0"
+			puts "\t\t\u00B7 Aces are worth 1"
+			puts "\t\tu00B7 4, 9, and Jacks are worth 0"
+			puts "\t\t\u00B7 Queens decrease the value by 10"
+			puts "\t\t\u00B7 Kings set the value to 99"
+			puts "\t\t\u00B7 Jokers set the value to 0"
 			exit
   	end
 }
@@ -37,54 +36,59 @@ END { # Thanks for playing
 }
 $value, value1, value2, value3, dealer, user = 0,0,0,0, Hand.new, Hand.new
 loop do
-    puts "\nIt's the dealer's turn!"
-    i = 0
-    for card in dealer.cards
-	case i += 1
-		when 1 then value1 = card_test card, $value
-        	when 2 then value2 = card_test card, $value
-        	when 3 then value3 = card_test card, $value
+  	puts "\nIt's the dealer's turn!"
+    	i = 0
+	for card in dealer.cards
+		case i += 1
+			when 1 then value1 = card_test card, $value
+        		when 2 then value2 = card_test card, $value
+        		when 3 then value3 = card_test card, $value
+    		end
     	end
-    end
-    if value1 >= value2 && value1 >= value3
-	$card = dealer.play dealer.cards.first
-    elsif value2 >= value1 && value2 >= value3
-    	$card = dealer.play dealer.cards[1]
-    else
-   	$card = dealer.play dealer.cards[2]
-    end
-    pause 1.5 
-    puts "The dealer played a(n) #{$card}"
-    pause(0.5)
-    puts "The value is now #{$value}\n"
-    pause(1.5)
-    if $value > 99 # Runs when you win and exits loop
-	    puts "You win!"
-	    break
-    end
-    puts "It's your turn!"
-    pause 1
-    user.view_cards
-    pause 0.5
-    puts "Pick a card to play by typing in the name of the card"
-    sleep 0.2
-    print "> "
-    input, playing = gets.chomp, true
-    user.cards.each do |card|
-    	if card.num == converter(input) && playing
-    		user.play card
-    		playing = false
+    	if value1 >= value2 && value1 >= value3
+		$card = dealer.play dealer.cards.first
+    	elsif value2 >= value1 && value2 >= value3
+    		$card = dealer.play dealer.cards[1]
+    	else
+   		$card = dealer.play dealer.cards.last
     	end
-    end	
+    	pause 1.5 
+    	puts "The dealer played #{$card}"
+    	pause(0.5)
+    	puts "The value is now #{$value}\n"
+    	pause(1.5)
+    	if $value > 99 # Runs when you win and exits loop
+		puts "You win!"
+	    	break
+    	end
+    	puts "It's your turn!"
+    	pause 1
+    	user.view_cards
+    	pause 0.5
+    	puts "Pick a card to play by typing in the name of the card"
+    	sleep 0.2
+    	playing = true
+    	while playing
+		print "> "
+		input = gets.chomp
+    		user.cards.each do |card|
+    			if card.num == converter(input) && playing
+    				user.play card
+				playing = false
+    			end
+    		end
+		sleep 0.2
+		puts "Illegal input. Please enter a legal card" if playing
+    	end	
 	pause 1
-	puts "You drew a(n) #{user.cards[2]}"
+	puts "You drew #{user.cards.last}"
 	pause 0.5
-    puts "The value is now #{$value}"
-    pause(1.5)
-    if $value > 99 # Runs when dealer wins and exits loop
-	    puts "You lose..."
-	    break
-    end
+    	puts "The value is now #{$value}"
+    	pause(1.5)
+    	if $value > 99 # Runs when dealer wins and exits loop
+		puts "You lose..."
+	    	break
+    	end
 end
 __END__
 Programmed by: Zachary Perlmutter
