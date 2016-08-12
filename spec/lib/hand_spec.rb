@@ -2,15 +2,12 @@ require "spec_helper"
 require "hand"
 describe "CPU" do
   s = Hand.new
-  s.cards = [Card.new("King", Card::Spades), Card.new("Joker"), Card.new(2, Card::Diamonds)]
+  s.cards = [Card.new(10, Card::Spades), Card.new("Joker"), Card.new(2, Card::Diamonds)]
   describe "test" do
-    tests = proc {|index| card_test(s.cards[index], 50)}
-    v1 = tests.call 0
-    v2 = tests.call 1
-    v3 = tests.call 2
-    describe v1 do
-      it {is_expected.to be > v2}
-      it {is_expected.to be > v3}
+    $value = 50
+    describe s.test_outcomes[0] do
+      it {is_expected.to be > s.test_outcomes[1]}
+      it {is_expected.to be > s.test_outcomes[2]}
     end
   end
 end
