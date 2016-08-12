@@ -41,6 +41,8 @@ class Hand # Creates an object that holds and can play cards. Interacts with Dec
         	@cards.each {|card| print "#{card}  "}
     	end
     	alias inspect cards
+# @return [Array<Integer>]
+# @note Used by the CPU to determine which card to play. Parameter card needs to be an instance of Card.
 	def test_outcomes
 		outcomes = Array.new
 		@cards.each do |card| 
@@ -57,5 +59,6 @@ class Hand # Creates an object that holds and can play cards. Interacts with Dec
 	    		test_value = -1 if test_value > 99
 			outcomes << test_value
 		end
+		return outcomes
     	end
 end
