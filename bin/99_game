@@ -38,22 +38,16 @@ $value, value1, value2, value3, dealer, user = 0,0,0,0, Hand.new, Hand.new
 loop do
   	puts "\nIt's the dealer's turn!"
     	i = 0
-	for card in dealer.cards
-		case i += 1
-			when 1 then value1 = card_test card, $value
-        		when 2 then value2 = card_test card, $value
-        		when 3 then value3 = card_test card, $value
-    		end
-    	end
-    	if value1 >= value2 && value1 >= value3
-		$card = dealer.play dealer.cards.first
-    	elsif value2 >= value1 && value2 >= value3
-    		$card = dealer.play dealer.cards[1]
+	outcomes = dealer.test_outcomes
+    	if outcomes[0] >= outcomes[1] && outcomes[0] >= outcomes[2]
+		outcome = 0
+    	elsif outcomes[1] >= outcomes[0] && outcomes >= value3
+    		outcome = 1
     	else
-   		$card = dealer.play dealer.cards.last
+   		outcome = 2
     	end
     	pause 1.5 
-    	puts "The dealer played #{$card}"
+    	puts "The dealer played #{dealer.play dealer.cards[outcome]}"
     	pause(0.5)
     	puts "The value is now #{$value}\n"
     	pause(1.5)
