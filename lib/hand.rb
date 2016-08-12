@@ -50,13 +50,13 @@ class Hand # Creates an object that holds and can play cards. Interacts with Dec
 			when "King"
 				if (@cards - [card]).any? {|card| [4, 9, "Jack", "Queen", "King", "Joker"].include? card.num} || rand < 0.1 
 					99
-				else -1
+				else -99
 				end
         		when "Joker" then 0
         		else
 				$value + card.value
 	    		end
-	    		test_value = -1 if test_value > 99
+	    		test_value = -100 if test_value > 99
 			outcomes << test_value
 		end
 		return outcomes
