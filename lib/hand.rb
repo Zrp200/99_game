@@ -48,9 +48,9 @@ class Hand # Creates an object that holds and can play cards. Interacts with Dec
 		@cards.each do |card| 
 			test_value = case card.num
 			when "King"
-				if @cards.any? {|card| [4, 9, "Jack", "Queen"].include? card.num} || rand < 0.1 
+				if (@cards - [card]).any? {|card| [4, 9, "Jack", "Queen", "King"].include? card.num} || rand < 0.1 
 					99
-				else -1
+				else -0.5
 				end
         		when "Joker" then 0
         		else
