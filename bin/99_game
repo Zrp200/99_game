@@ -41,7 +41,7 @@ loop do
 	outcomes = dealer.test_outcomes
     	if outcomes[0] >= outcomes[1] && outcomes[0] >= outcomes[2]
 		outcome = 0
-    	elsif outcomes[1] >= outcomes[0] && outcomes >= value3
+    	elsif outcomes[1] >= outcomes[0] && outcomes[1] >= outcomes[2]
     		outcome = 1
     	else
    		outcome = 2
