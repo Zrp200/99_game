@@ -37,8 +37,7 @@ END { # Thanks for playing
 $value, value1, value2, value3, dealer, user = 0,0,0,0, Hand.new, Hand.new
 loop do
   	puts "\nIt's the dealer's turn!"
-    	i = 0
-	outcomes = dealer.test_outcomes
+    	i, outcomes = 0, dealer.test_outcomes
     	if outcomes[0] >= outcomes[1] && outcomes[0] >= outcomes[2]
 		outcome = 0
     	elsif outcomes[1] >= outcomes[0] && outcomes[1] >= outcomes[2]
