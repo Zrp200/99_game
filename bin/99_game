@@ -6,7 +6,7 @@ BEGIN { # Looks at its arguements
 	ARGV[0] = "-v" if ARGV[0] == "--version"
 	case ARGV[0]
 		when "-v"
-    			puts "3.2.2"
+    			puts "5.0.0"
     			exit
 		when "-h"
 			puts "\u00B7 Commands"
@@ -37,6 +37,7 @@ END { # Thanks for playing
 $value, value1, value2, value3, dealer, user = 0,0,0,0, Hand.new, Hand.new
 loop do
   	puts "\nIt's the dealer's turn!"
+
     	i, outcomes = 0, dealer.test_outcomes
     	if outcomes[0] >= outcomes[1] && outcomes[0] >= outcomes[2]
 		outcome = 0
@@ -45,16 +46,16 @@ loop do
     	else
    		outcome = 2
     	end
-    	pause 1.5 
+    	pause 1.4 
     	puts "The dealer played #{dealer.play dealer.cards[outcome]}"
-    	pause(0.5)
+    	pause(0.6)
     	puts "The value is now #{$value}\n"
-    	pause(1.5)
+    	pause(1.75)
     	if $value > 99 # Runs when you win and exits loop
 		puts "You win!"
 	    	break
     	end
-    	puts "It's your turn!"
+    	puts "\nIt's your turn!"
     	pause 1
     	user.view_cards
     	pause 0.5
@@ -73,15 +74,15 @@ loop do
 		sleep 0.2
 		puts "Illegal input. Please enter a legal card" if playing
     	end	
-	pause 1
-	puts "You drew #{user.cards.last}"
-	pause 0.5
+	pause 0.75
     	puts "The value is now #{$value}"
     	pause(1.5)
     	if $value > 99 # Runs when dealer wins and exits loop
 		puts "You lose..."
 	    	break
     	end
+	puts "You drew #{user.cards.last}"
+	pause 1.75
 end
 __END__
 Programmed by: Zachary Perlmutter
