@@ -6,7 +6,7 @@ BEGIN { # Looks at its arguements
 	ARGV[0] = "-v" if ARGV[0] == "--version"
 	case ARGV[0]
 		when "-v"
-    			puts "5.0.0"
+    			puts "5.1.0"
     			exit
 		when "-h"
 			puts "\u00B7 Commands"
@@ -22,7 +22,7 @@ BEGIN { # Looks at its arguements
 			puts "\t\u00B7 Your goal is to get your opponent to bring the value over 99 by playing 1 of your 3 cards."
 			puts "\t\u00B7 A card will usually increase the value by itself, but there are a few exceptions:"
 			puts "\t\t\u00B7 Aces are worth 1"
-			puts "\t\tu00B7 4, 9, and Jacks are worth 0"
+			puts "\t\t\u00B7 4, 9, and Jacks are worth 0"
 			puts "\t\t\u00B7 Queens decrease the value by 10"
 			puts "\t\t\u00B7 Kings set the value to 99"
 			puts "\t\t\u00B7 Jokers set the value to 0"
