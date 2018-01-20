@@ -9,7 +9,7 @@ install:
 rvm: 2.5
 before_script: ./cc-test-reporter before-build
 script: bundle exec rspec -f doc --color
-after_script: ./cc-test-reporter after-build
+before_cache: ./cc-test-reporter after-build --exit-code $EXIT_CODE
 notifications:
  email:
   recipients:
