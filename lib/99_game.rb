@@ -9,8 +9,8 @@ autoload :Hand, "hand"
 =end
 	def card_test(card, actual_value)
 		test_value = case card.num
-			when "King" then 99
-        		when "Joker" then 0
+			when "King" then 98
+        		when "Joker" then (actual_value <= 0) ? actual_value - 1 : 0
         	else
 			actual_value + card.value
 	    	end
