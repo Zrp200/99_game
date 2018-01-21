@@ -21,12 +21,4 @@ matrix:
  fast_finish: true
  allow_failures:
  - rvm: ruby-head
-before_deploy: chmod a+x bin/99_game
-deploy:
-  provider: rubygems
-  api_key:
-    secure: y2bXWjmx+gW5/e9s/Amo76UnL91dsa32rSpOliX4JGHVdGc9jLhAqMLHOpqzVVMzbGNHfcN8ri7WHVV3J+ChefKKYgPqcRujiY9uaM6vPAk5jqTK9Q8UUl06RfJOWumXJfa4Ne7tOI3eKq/HDgbMDWPLiNi5quKpschYxJRndX4=
-  gem: 99_game
-  on:
-    tags: true
-    repo: Zrp200/99_game
+
